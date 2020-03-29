@@ -18,7 +18,7 @@ public class Parallax : MonoBehaviour
     {
         float dist = cam.transform.position.x * parallaxHorizontal;
 
-        transform.position = new Vector3(startPos + dist, transform.position.y, 0);
+        transform.position = new Vector3(startPos + dist, transform.position.y, transform.position.z);
 
     }
 

@@ -70,11 +70,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (boxCollider2D.IsTouchingLayers(GroundLayerMask))
         {
-            Debug.Log("OnLand");
+            //Debug.Log("OnLand");
             return true;
         }
 
-        Debug.Log("!OnLand");
+        //Debug.Log("!OnLand");
         return false;
     }
 }

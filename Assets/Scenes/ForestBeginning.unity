@@ -452,7 +452,7 @@ Transform:
   m_Children:
   - {fileID: 700552901}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -1172,7 +1172,6 @@ Transform:
   - {fileID: 919112319}
   - {fileID: 839304836}
   - {fileID: 1430750099}
-  - {fileID: 1046019463}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1299,12 +1298,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046019462}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1932143505}
-  m_Father: {fileID: 870580415}
-  m_RootOrder: 4
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!156049354 &1046019464
 Grid:
@@ -1872,9 +1871,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1465722761
-  m_SortingLayer: -1
-  m_SortingOrder: 4
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -2128,11 +2127,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6dc1ed0d43c90d45abbad7f9ffb3ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vegsArr:
+  lil_plantsArr:
   - {fileID: 8537072106152275111, guid: 33dd8ce9dea7333469a762fde6c6852b, type: 3}
   - {fileID: 8630561069509398325, guid: 40278fcb04eae09429e994a238db295b, type: 3}
   - {fileID: 4128588088299913297, guid: 4d6f74c4eda10cc4aade764e43760816, type: 3}
   - {fileID: 398311168952940620, guid: f531dedc467425042aef91949ac3d9ad, type: 3}
+  - {fileID: 7246039940523652572, guid: 711a3e75d7f52504295182e2d9afafcb, type: 3}
+  - {fileID: 809243785468441477, guid: b4970092218ed984294694031ffc5472, type: 3}
+  - {fileID: 6846016946923775356, guid: 33414f1fd9e352547a2603e3d102b3c4, type: 3}
+  - {fileID: 5740643492463184921, guid: 2804226dae05da5479bcab4a240b59c4, type: 3}
+  - {fileID: 8453250750123648737, guid: 60919d1466b6d674ea29a1b363a38b6f, type: 3}
+  - {fileID: 10553088347896850, guid: 5e5ad3a027a6015478e4a5992fd1e4a5, type: 3}
+  - {fileID: 5269201958154443082, guid: cc5770f4af8e4d3429127ec3112d6519, type: 3}
+  - {fileID: 7006610352992364778, guid: 11444e4a0540acd4cb1f5199c58598f7, type: 3}
+  lil_plantsNb: 15
+  big_plantsArr:
+  - {fileID: 4641763362789102807, guid: d1f7116e24949bf428ace3b6d4e0c574, type: 3}
+  - {fileID: 8620676289029522347, guid: 4a670bd2e4ff8594f85c4407c26bee28, type: 3}
+  - {fileID: 5680098407454950876, guid: 1a68d19c5798cc24890dffb141ebfe55, type: 3}
+  - {fileID: 8843884531482039191, guid: e723f6a066600934c9949708e74e079d, type: 3}
+  big_plantsNb: 3
+  treesArr:
+  - {fileID: 3150049067609064440, guid: 0426db32ef957454d9e0966a8f79dfed, type: 3}
+  - {fileID: 5718695509320734208, guid: 703ed0e400c1b74479642eae9a698f6f, type: 3}
+  - {fileID: 8572163008531486093, guid: 9303a1e6ee7433642bd2ba4ae3f4a595, type: 3}
+  treesNb: 5
+  grass: {fileID: 3268771639114711849, guid: 95ffb18d74854844d8caab9c7c58f360, type: 3}
 --- !u!66 &1932143510
 CompositeCollider2D:
   m_ObjectHideFlags: 0

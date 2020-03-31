@@ -20,6 +20,7 @@ public class VegGeneration : MonoBehaviour
     private Tilemap ground;  
     private float vegYPos;
     private int randomIndex;
+    private int randomPosX;
     private float limitX;
 
     private void Awake()
@@ -38,6 +39,9 @@ public class VegGeneration : MonoBehaviour
         for (int i = 0; i < lil_plantsNb; ++i)
         {
             randomIndex = Random.Range(0, lil_plantsArr.Length);
+
+            //while (Random.Range(-limitX, limitX) < )
+
             Instantiate(lil_plantsArr[randomIndex], new Vector3(Random.Range(-limitX, limitX), vegYPos + lil_plantsArr[randomIndex].bounds.extents.y), lil_plantsArr[randomIndex].transform.rotation);
         }
         

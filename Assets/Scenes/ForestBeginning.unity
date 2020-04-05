@@ -4006,6 +4006,7 @@ GameObject:
   - component: {fileID: 281112561}
   - component: {fileID: 281112565}
   - component: {fileID: 281112566}
+  - component: {fileID: 281112567}
   m_Layer: 9
   m_Name: Pink_Monster
   m_TagString: Player
@@ -4139,10 +4140,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MOVE_SPEED: 3
   JUMP_VELOCITY: 5
-  animator: {fileID: 281112566}
   GroundLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  animator: {fileID: 281112566}
 --- !u!95 &281112566
 Animator:
   serializedVersion: 3
@@ -4162,6 +4163,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &281112567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281112560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe1c87080b0a6ae4daca5200af29a5f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pM: {fileID: 281112565}
+  state: 0
 --- !u!4 &281730737 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5698458662716775177, guid: 95ffb18d74854844d8caab9c7c58f360,
@@ -11596,12 +11611,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95ffb18d74854844d8caab9c7c58f360, type: 3}
---- !u!95 &833836847 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 509764214, guid: 38768b6f6755eb641aea87890c2de1ba,
-    type: 3}
-  m_PrefabInstance: {fileID: 1078799105}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &839304835
 GameObject:
   m_ObjectHideFlags: 0
@@ -15633,38 +15642,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 509764214, guid: 38768b6f6755eb641aea87890c2de1ba, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 1e24b5ae6ffcc2247bc8e0f93d8ca61a, type: 2}
-    - target: {fileID: 509764216, guid: 38768b6f6755eb641aea87890c2de1ba, type: 3}
-      propertyPath: moveSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 509764216, guid: 38768b6f6755eb641aea87890c2de1ba, type: 3}
-      propertyPath: target.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 509764216, guid: 38768b6f6755eb641aea87890c2de1ba, type: 3}
-      propertyPath: dist
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 509764216, guid: 38768b6f6755eb641aea87890c2de1ba, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 833836847}
-    - target: {fileID: 509764216, guid: 38768b6f6755eb641aea87890c2de1ba, type: 3}
-      propertyPath: initDelay
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 509764216, guid: 38768b6f6755eb641aea87890c2de1ba, type: 3}
-      propertyPath: playerLayer.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
     - target: {fileID: 8766158692836087994, guid: 38768b6f6755eb641aea87890c2de1ba,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.76
+      value: 2.96
       objectReference: {fileID: 0}
     - target: {fileID: 8766158692836087994, guid: 38768b6f6755eb641aea87890c2de1ba,
         type: 3}

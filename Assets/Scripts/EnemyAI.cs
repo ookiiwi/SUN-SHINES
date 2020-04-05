@@ -114,7 +114,8 @@ public class EnemyAI : MonoBehaviour
         {
             state = State.Chase;
             animator.SetBool("IsRunning", true);
-            //Debug.DrawLine(transform.position, transform.position + transform.right * dist, Color.red);
+
+            return;
         }
 
         if (delayPasse)
@@ -146,28 +147,36 @@ public class EnemyAI : MonoBehaviour
             delayPasse = true;
         }
 
-        if (patrolState == PatrolState.Idle)
+        switch (patrolState)
         {
-            animator.SetBool("IsRunning", false);
-            Debug.Log("Patrol idle");
-        }
+            case PatrolState.Idle:
+            {
+                animator.SetBool("IsRunning", false);
+                Debug.Log("Patrol idle");
+                break;
+            }
 
-        else if (patrolState == PatrolState.SearchLeft)
-        {
-            animator.SetBool("IsRunning", true);
-            controller.move(rb2d, -moveSpeed / 2);
-            dist = dist < 0 ? dist : -dist;
+            case PatrolState.SearchLeft:
+            {
+                animator.SetBool("IsRunning", true);
+                controller.move(rb2d, -moveSpeed / 2);
+                dist = dist < 0 ? dist : -dist;
 
-            Debug.Log("Patrol search left");
-        }
+                Debug.Log("Patrol search left");
 
-        else if (patrolState == PatrolState.SearchRight)
-        {
-            animator.SetBool("IsRunning", true);
-            controller.move(rb2d, moveSpeed / 2);
-            dist = dist > 0 ? dist : -dist;
+                break;
+            }
 
-            Debug.Log("Patrol search right");
+            case PatrolState.SearchRight:
+            {
+                animator.SetBool("IsRunning", true);
+                controller.move(rb2d, moveSpeed / 2);
+                dist = dist > 0 ? dist : -dist;
+
+                Debug.Log("Patrol search right");
+
+                break;
+            }
         }
     }
 
@@ -175,28 +184,24 @@ public class EnemyAI : MonoBehaviour
 
     private void ChaseTarget(RaycastHit2D hit)
     {
-        if (transform.position.x + sprite.bounds.extents.x < target.position.x - targetSprite.bounds.extents.x)
-        {
-            controller.move(rb2d, moveSpeed);
-            
-        }
-        
-        else if (transform.position.x - sprite.bounds.extents.x > target.position.x + targetSprite.bounds.extents.x)
-        {
-            controller.move(rb2d, -moveSpeed);
-        }
+        controller.move(rb2d, moveSpeed * dir.normalized.x);      
 
         if (hit.collider == null)
         {
             
             state = State.Patrol;
             animator.SetBool("IsRunning", false);
+
+            return;
         }
 
         if (Mathf.Abs(transform.position.x - target.position.x) < 2f)
         {
             state = State.Attack;
             animator.SetBool("IsRunning", false);
+            animator.SetBool("Attack", true); 
+
+            return;
         }
     }
 
@@ -207,11 +212,8 @@ public class EnemyAI : MonoBehaviour
             state = State.Chase;
             animator.SetBool("Attack", false);
             animator.SetBool("IsRunning", true);
-        }
 
-        else
-        {
-            animator.SetBool("Attack", true);   
+            return;
         }
             
     }

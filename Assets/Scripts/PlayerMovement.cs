@@ -7,13 +7,10 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float MOVE_SPEED = 4f;
     [SerializeField] private int JUMP_VELOCITY = 9;
-
-    private float moveX = 0f;
+    [SerializeField] private LayerMask GroundLayerMask;
     private Rigidbody2D rb;
     public Animator animator;
     private SpriteRenderer spriteRenderer;
-
-    [SerializeField] private LayerMask GroundLayerMask;
     private BoxCollider2D boxCollider2D;
 
     private void Awake()
@@ -24,45 +21,19 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    private void FixedUpdate()
+    public void Run(float moveX)
     {
-        moveX = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveX * MOVE_SPEED, rb.velocity.y);
+        spriteRenderer.flipX = moveX > 0 ? false : true;
+        animator.SetFloat("Speed", Mathf.Abs(moveX));
     }
 
-    private void Update()
+    public void Jump()
     {
-        //move right
-        if (moveX > 0)
-        {           
-            spriteRenderer.flipX = false;
-            animator.SetFloat("Speed", Mathf.Abs(moveX));
-            //animator.Play("Run_anim");
-        }
-
-        //move left
-        else if (moveX < 0)
-        {
-            spriteRenderer.flipX = true;
-            animator.SetFloat("Speed", Mathf.Abs(moveX));
-            //animator.Play("Run_anim");
-        }
-
-        else
-        {
-            //animator.SetFloat("Speed", 0);
-        }
-
-        if (OnLand() && Input.GetKey(KeyCode.Space))
+        if (OnLand())
         {
             rb.velocity = Vector2.up * JUMP_VELOCITY;
             animator.SetBool("IsJumping", true);
-            //animator.Play("Jump_anim");
-        }
-
-        else
-        {
-            animator.SetBool("IsJumping", false);
         }
     }
 

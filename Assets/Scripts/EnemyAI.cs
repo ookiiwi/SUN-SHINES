@@ -11,19 +11,21 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private LayerMask playerLayer;
     private Transform target;
     private Rigidbody2D rb2d;
-    private SpriteRenderer sprite;
-    private SpriteRenderer targetSprite;
     private EnemyController controller;
     private float delay;
     private bool delayPasse = true;
     private RaycastHit2D hit;
     private Vector2 dir;
 
-    private enum State
+    [SerializeField] private float HP;
+
+    public enum State
     {
         Patrol,
         Chase,
-        Attack
+        Attack,
+        Hurt,
+        Die
     };
 
     private enum PatrolState
@@ -33,15 +35,13 @@ public class EnemyAI : MonoBehaviour
         SearchLeft
     };
 
-    private State state;
+    public State state;
     private PatrolState patrolState;
 
     private void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         rb2d = gameObject.GetComponent<Rigidbody2D>();
-        sprite = GetComponent<SpriteRenderer>();
-        targetSprite = GetComponent<SpriteRenderer>();
         controller = new EnemyController();
 
         state = State.Patrol;
@@ -99,6 +99,18 @@ public class EnemyAI : MonoBehaviour
                 {
                     Attack();
                     Debug.Log("Attack state");
+                    break;
+                }
+
+            case State.Hurt:
+                {
+                    Hurt();
+                    break;
+                }
+
+            case State.Die:
+                {
+                    Die();
                     break;
                 }
         }
@@ -216,5 +228,26 @@ public class EnemyAI : MonoBehaviour
             return;
         }
             
+    }
+
+    private void Hurt()
+    {
+        HP -= 20;
+        Debug.Log("Hurt() called");
+
+        if (HP <= 0)
+        {
+            state = State.Die;
+            return;
+        }
+
+        state = State.Patrol;
+        Debug.Log("Hurt");
+    }
+    
+    private void Die()
+    {
+        Destroy(gameObject);
+        Debug.Log("Dying");
     }
 }

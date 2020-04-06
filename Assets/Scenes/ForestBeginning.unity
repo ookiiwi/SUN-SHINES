@@ -29026,6 +29026,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FirePoint
       objectReference: {fileID: 0}
+    - target: {fileID: 4895824986896479628, guid: 7b18654626920274fb7ea9a0bd03a89a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Fire Point
+      objectReference: {fileID: 0}
     - target: {fileID: 8041753046892120484, guid: 7b18654626920274fb7ea9a0bd03a89a,
         type: 3}
       propertyPath: m_LocalRotation.x

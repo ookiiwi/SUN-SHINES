@@ -10,7 +10,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Awake()
     {
-        firePoint = GameObject.FindGameObjectWithTag("Hit Point").GetComponent<Transform>();
+        firePoint = GameObject.FindGameObjectWithTag("Fire Point").GetComponent<Transform>();
     }
 
     public void Attack()

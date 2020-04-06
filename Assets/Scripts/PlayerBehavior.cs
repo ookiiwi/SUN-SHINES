@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerBehavior : MonoBehaviour
 {
     public PlayerMovement pM;
+    public PlayerAttack pAttack;
+    public Animator animator;
 
     public enum State
     {
@@ -20,17 +22,18 @@ public class PlayerBehavior : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetAxis("Horizontal") != 0)
+        if (Input.GetAxis("Horizontal") != 0 && pM.OnLand())
         {
             state = State.Run;
+            animator.SetBool("IsRunning", true);
         }
 
-        else
+        else if (pM.OnLand())
         {
             state = State.Idle;
         }
 
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             state = State.Jump;
         }
@@ -38,6 +41,11 @@ public class PlayerBehavior : MonoBehaviour
         else
         {
             pM.animator.SetBool("IsJumping", false);
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            state = State.Attack;
         }
 
         Behavior();
@@ -49,7 +57,7 @@ public class PlayerBehavior : MonoBehaviour
         {
             case State.Idle:
                 {
-
+                    animator.SetBool("IsRunning", false);
 
                     break;
                 }
@@ -64,12 +72,16 @@ public class PlayerBehavior : MonoBehaviour
             case State.Jump:
                 {
                     pM.Jump();
+                    animator.SetBool("IsRunning", false);
+                    animator.SetBool("IsJumping", true);
 
                     break;
                 }
             
             case State.Attack:
                 {
+                    animator.SetTrigger("Attack");
+                    pAttack.Attack();
 
                     break;
                 }

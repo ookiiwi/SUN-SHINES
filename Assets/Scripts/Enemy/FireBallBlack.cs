@@ -6,7 +6,7 @@ public class FireBallBlack : MonoBehaviour
 {
     public float moveSpeed;
     private Rigidbody2D rb;
-    private PlayerHealth pHealth;
+    private PlayerHealth p_health;
 
     public int DP;
 
@@ -14,16 +14,17 @@ public class FireBallBlack : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.up * moveSpeed;
-        pHealth = FindObjectOfType<PlayerHealth>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         Debug.Log("Destroy " + collision.name);
 
         if (collision.CompareTag("Player"))
         {
-            //pHealth.Hurt(DP);          
+            p_health = collision.gameObject.GetComponent<PlayerHealth>();
+            p_health.Hurt(DP);          
         } 
 
         Destroy(gameObject);         

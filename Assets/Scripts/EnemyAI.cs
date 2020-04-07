@@ -233,6 +233,9 @@ public class EnemyAI : MonoBehaviour
     private void Hurt()
     {
         HP -= 20;
+        animator.SetTrigger("IsHurt");
+        controller.move(rb2d, 1 * dir.normalized.x);
+
         Debug.Log("Hurt() called");
 
         if (HP <= 0)

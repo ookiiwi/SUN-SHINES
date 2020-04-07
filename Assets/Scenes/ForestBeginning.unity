@@ -20250,12 +20250,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 227556802}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1458195044 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8041753046892120484, guid: 7b18654626920274fb7ea9a0bd03a89a,
-    type: 3}
-  m_PrefabInstance: {fileID: 2033551777722488866}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1465959922 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7316658110092308845, guid: 60919d1466b6d674ea29a1b363a38b6f,
@@ -29009,56 +29003,6 @@ PrefabInstance:
     - target: {fileID: 2033551777986656214, guid: 7b18654626920274fb7ea9a0bd03a89a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2985562359012136782, guid: 7b18654626920274fb7ea9a0bd03a89a,
-        type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2985562359012136782, guid: 7b18654626920274fb7ea9a0bd03a89a,
-        type: 3}
-      propertyPath: firePoint
-      value: 
-      objectReference: {fileID: 1458195044}
-    - target: {fileID: 4895824986896479628, guid: 7b18654626920274fb7ea9a0bd03a89a,
-        type: 3}
-      propertyPath: m_Name
-      value: FirePoint
-      objectReference: {fileID: 0}
-    - target: {fileID: 4895824986896479628, guid: 7b18654626920274fb7ea9a0bd03a89a,
-        type: 3}
-      propertyPath: m_TagString
-      value: Fire Point
-      objectReference: {fileID: 0}
-    - target: {fileID: 8041753046892120484, guid: 7b18654626920274fb7ea9a0bd03a89a,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8041753046892120484, guid: 7b18654626920274fb7ea9a0bd03a89a,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8041753046892120484, guid: 7b18654626920274fb7ea9a0bd03a89a,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 8041753046892120484, guid: 7b18654626920274fb7ea9a0bd03a89a,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 8041753046892120484, guid: 7b18654626920274fb7ea9a0bd03a89a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 8041753046892120484, guid: 7b18654626920274fb7ea9a0bd03a89a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

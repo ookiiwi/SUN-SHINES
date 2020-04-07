@@ -50,7 +50,7 @@ public class EnemyAI : MonoBehaviour
     private void FixedUpdate()
     { 
         hit = Physics2D.Linecast(transform.position, dir + new Vector2(dist, 0), playerLayer);
-        inAttackRange = Physics2D.Linecast(transform.position, dir + new Vector2(attackrange, 0), playerLayer);
+        //inAttackRange = Physics2D.Linecast(transform.position, dir + new Vector2(attackrange, 0), playerLayer);
 
         if (hit.collider != null)
         {

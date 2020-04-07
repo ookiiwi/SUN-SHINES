@@ -43,7 +43,12 @@ GameObject:
   - component: {fileID: 8766158692836087996}
   - component: {fileID: 8766158692836087997}
   - component: {fileID: 509764214}
+  - component: {fileID: 7580018104884125577}
   - component: {fileID: 3168550523485069367}
+  - component: {fileID: 6960653181251224772}
+  - component: {fileID: 4999375190606513416}
+  - component: {fileID: 3731059020417792872}
+  - component: {fileID: 7831317452808255053}
   m_Layer: 10
   m_Name: Blue_Enemy
   m_TagString: Enemy
@@ -183,6 +188,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7580018104884125577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8766158692836087998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ade3468ffb1be346b0a7f9fb27aadd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3168550523485069367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,14 +214,76 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   dist: 5
+  attackrange: 3
   animator: {fileID: 509764214}
-  initDelay: 5
   playerLayer:
     serializedVersion: 2
     m_Bits: 512
+  e_Attack: {fileID: 6960653181251224772}
+  e_ChaseTarget: {fileID: 4999375190606513416}
+  e_Patrol: {fileID: 3731059020417792872}
+  e_Health: {fileID: 7831317452808255053}
+  rb: {fileID: 8766158692836087996}
+  dir: {x: 0, y: 0}
+  state: 0
+--- !u!114 &6960653181251224772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8766158692836087998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681f8757b661ca84e83d59eecf56cd5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   firePoint: {fileID: 846979409122644059}
   fireBall: {fileID: 5511478762908676452, guid: 9460fd3c67365bc4189a5932d26e7f71,
     type: 3}
+  enemyAI: {fileID: 3168550523485069367}
   initDelayAttacks: 2
+--- !u!114 &4999375190606513416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8766158692836087998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af95f661c89af1f409b44b30deaab72f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAI: {fileID: 3168550523485069367}
+  enemyController: {fileID: 7580018104884125577}
+--- !u!114 &3731059020417792872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8766158692836087998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee24d1f2dc5413547bd8a3ae4e16cd08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyAI: {fileID: 3168550523485069367}
+  enemyController: {fileID: 7580018104884125577}
+  patrolState: 0
+--- !u!114 &7831317452808255053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8766158692836087998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e411b0f9840bfa4c88740a6d1885435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   HP: 100
-  state: 0
+  enemyAI: {fileID: 3168550523485069367}
+  enemyController: {fileID: 7580018104884125577}

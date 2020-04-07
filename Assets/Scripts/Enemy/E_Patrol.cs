@@ -91,6 +91,7 @@ public class E_Patrol : MonoBehaviour
                     animator.SetBool("IsRunning", true);
                     enemyController.move(enemyAI.rb, -moveSpeed / 2);
                     enemyAI.dist = enemyAI.dist < 0 ? enemyAI.dist : -enemyAI.dist;
+                    enemyAI.attackrange = enemyAI.attackrange < 0 ? enemyAI.attackrange : -enemyAI.attackrange;
 
                     Debug.Log("Patrol search left");
 
@@ -102,6 +103,7 @@ public class E_Patrol : MonoBehaviour
                     animator.SetBool("IsRunning", true);
                     enemyController.move(rb, moveSpeed / 2);
                     enemyAI.dist = enemyAI.dist > 0 ? enemyAI.dist : -enemyAI.dist;
+                    enemyAI.attackrange = enemyAI.attackrange > 0 ? enemyAI.attackrange : -enemyAI.attackrange;
 
                     Debug.Log("Patrol search right");
 

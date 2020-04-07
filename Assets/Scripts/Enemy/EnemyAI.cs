@@ -43,6 +43,7 @@ public class EnemyAI : MonoBehaviour
     private void Update()
     {
         dir = new Vector2(transform.position.x, transform.position.y);
+
         Debug.Log("Dir: " + dir);
     }
 
@@ -50,7 +51,7 @@ public class EnemyAI : MonoBehaviour
     private void FixedUpdate()
     { 
         hit = Physics2D.Linecast(transform.position, dir + new Vector2(dist, 0), playerLayer);
-        //inAttackRange = Physics2D.Linecast(transform.position, dir + new Vector2(attackrange, 0), playerLayer);
+        inAttackRange = Physics2D.Linecast(transform.position, dir + new Vector2(attackrange, 0), playerLayer);
 
         if (hit.collider != null)
         {
@@ -61,7 +62,7 @@ public class EnemyAI : MonoBehaviour
 
         else
         {
-            Debug.DrawLine(transform.position, dir + new Vector2(dist, 0), Color.green);
+            Debug.DrawLine(transform.position, dir + new Vector2(attackrange, 0), Color.green);
         }
 
         Behaviour();
@@ -81,7 +82,7 @@ public class EnemyAI : MonoBehaviour
 
             case State.Chase:
                 {
-                    e_ChaseTarget.ChaseTarget(hit);
+                    e_ChaseTarget.ChaseTarget(hit, inAttackRange);
 
                     Debug.Log("Chase state");
                     break;
@@ -89,7 +90,7 @@ public class EnemyAI : MonoBehaviour
 
             case State.Attack:
                 {
-                    e_Attack.Attack();
+                    e_Attack.Attack(inAttackRange);
                     Debug.Log("Attack state");
                     break;
                 }

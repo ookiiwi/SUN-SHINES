@@ -14,7 +14,7 @@ public class E_ChaseTarget : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
-    public void ChaseTarget(RaycastHit2D hit)
+    public void ChaseTarget(RaycastHit2D hit, RaycastHit2D inRange)
     {
         enemyController.move(enemyAI.rb, enemyAI.moveSpeed * enemyAI.dir.normalized.x);
 
@@ -27,11 +27,10 @@ public class E_ChaseTarget : MonoBehaviour
             return;
         }
 
-        if (Mathf.Abs(transform.position.x - target.position.x) < 2f)
+        if (inRange.collider != null) 
         {
             enemyAI.state = EnemyAI.State.Attack;
             enemyAI.animator.SetBool("IsRunning", false);
-
 
             return;
         }

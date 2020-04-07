@@ -12,8 +12,15 @@ public class E_Attack : MonoBehaviour
     public float initDelayAttacks;
     static private float delayBetweenAttacks = 0;
 
-    public void Attack()
+    public void Attack(RaycastHit2D inRange)
     {
+        if (inRange.collider == null)
+        {
+            enemyAI.state = EnemyAI.State.Chase;
+
+            return;
+        }
+
         if (delayBetweenAttacks <= 0)
         {
             delayBetweenAttacks = initDelayAttacks;

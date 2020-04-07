@@ -4,7 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Fire Point
+  - Enemy
   layers:
   - Default
   - TransparentFX

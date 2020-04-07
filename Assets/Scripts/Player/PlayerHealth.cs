@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    private int HP = 100;
+    public int HP;
     private Animator anim;
     private PlayerBehavior playerBehavior;
 
@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
 
         if (HP <= 0)
         {
-            Die();
+            StartCoroutine(Die());
 
             return;
         }

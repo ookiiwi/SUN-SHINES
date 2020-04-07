@@ -202,13 +202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c68241a6b79d133488669add4a33cd45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesLayers:
-    serializedVersion: 2
-    m_Bits: 1024
+  firePoint: {fileID: 8041753046892120484}
   fireBall: {fileID: 4180461898132031998, guid: 4b9f7f03ac216104cacb1898d6ee564a,
     type: 3}
-  pBehavior: {fileID: 2033551777986656213}
-  animator: {fileID: 0}
 --- !u!1 &4895824986896479628
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,8 +215,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8041753046892120484}
   m_Layer: 0
-  m_Name: HitPoint
-  m_TagString: Hit Point
+  m_Name: FirePoint
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -232,13 +228,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4895824986896479628}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.332, y: -0.273, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 1.008, y: -0.273, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2033551777986656214}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &8949204441384765297
 GameObject:
   m_ObjectHideFlags: 0

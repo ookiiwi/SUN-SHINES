@@ -16,6 +16,10 @@ public class EnemyAI : MonoBehaviour
     private bool delayPasse = true;
     private RaycastHit2D hit;
     private Vector2 dir;
+    public Transform firePoint;
+    public GameObject fireBall;
+    public float initDelayAttacks;
+    private float delayBetweenAttacks = 0;
 
     [SerializeField] private float HP;
 
@@ -23,9 +27,7 @@ public class EnemyAI : MonoBehaviour
     {
         Patrol,
         Chase,
-        Attack,
-        Hurt,
-        Die
+        Attack
     };
 
     private enum PatrolState
@@ -48,6 +50,7 @@ public class EnemyAI : MonoBehaviour
         patrolState = PatrolState.Idle;
 
         delay = initDelay;
+
         dir = new Vector2(transform.position.x - dist, transform.position.y);
     }
 
@@ -76,7 +79,7 @@ public class EnemyAI : MonoBehaviour
     }
 
     private void Behaviour()
-    {
+    {        
         switch (state)
         {
             case State.Patrol:
@@ -101,19 +104,8 @@ public class EnemyAI : MonoBehaviour
                     Debug.Log("Attack state");
                     break;
                 }
-
-            case State.Hurt:
-                {
-                    Hurt();
-                    break;
-                }
-
-            case State.Die:
-                {
-                    Die();
-                    break;
-                }
         }
+        
 
         //Debug.Log("Routine called");
 
@@ -211,7 +203,7 @@ public class EnemyAI : MonoBehaviour
         {
             state = State.Attack;
             animator.SetBool("IsRunning", false);
-            animator.SetBool("Attack", true); 
+            
 
             return;
         }
@@ -220,27 +212,43 @@ public class EnemyAI : MonoBehaviour
     private void Attack()
     {
         if (Mathf.Abs(transform.position.x - target.position.x) > 2f)
-        {            
+        {
             state = State.Chase;
             animator.SetBool("Attack", false);
             animator.SetBool("IsRunning", true);
 
             return;
         }
-            
+
+        if (delayBetweenAttacks <= 0)
+        {
+            delayBetweenAttacks = initDelayAttacks;
+
+            animator.SetBool("Attack", true);
+            Instantiate(fireBall, firePoint.position, firePoint.rotation);
+
+            Debug.Log("Instantiate black fireBall");
+        }
+
+        else
+        {
+            delayBetweenAttacks -= Time.deltaTime;
+        }
+
+        state = State.Attack;   
     }
 
-    private void Hurt()
+    public void Hurt(int DP)
     {
-        HP -= 20;
+        HP -= DP;
         animator.SetTrigger("IsHurt");
-        controller.move(rb2d, 1 * dir.normalized.x);
+        controller.move(rb2d, 0 * dir.normalized.x);
 
         Debug.Log("Hurt() called");
 
         if (HP <= 0)
         {
-            state = State.Die;
+            Die();
             return;
         }
 

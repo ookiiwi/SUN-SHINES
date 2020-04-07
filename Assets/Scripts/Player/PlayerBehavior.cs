@@ -7,6 +7,12 @@ public class PlayerBehavior : MonoBehaviour
     public PlayerMovement pM;
     public PlayerAttack pAttack;
     public Animator animator;
+    private PlayerHealth pHealth;
+
+    private void Awake()
+    {
+        pHealth = FindObjectOfType<PlayerHealth>();
+    }
 
     public enum State
     {
@@ -14,8 +20,7 @@ public class PlayerBehavior : MonoBehaviour
         Run,
         Jump,
         Attack,
-        Hurt,
-        Die
+        Hurt
     };
 
     public State state;
@@ -81,19 +86,14 @@ public class PlayerBehavior : MonoBehaviour
             case State.Attack:
                 {
                     animator.SetTrigger("Attack");
-                    pAttack.Attack();
+                    StartCoroutine(pAttack.Attack());
 
                     break;
                 }
             
             case State.Hurt:
                 {
-
-                    break;
-                }
-            
-            case State.Die:
-                {
+                    pHealth.Hurt(20);
 
                     break;
                 }

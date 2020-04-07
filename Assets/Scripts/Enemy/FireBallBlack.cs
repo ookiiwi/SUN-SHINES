@@ -2,29 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBall : MonoBehaviour
+public class FireBallBlack : MonoBehaviour
 {
     public float moveSpeed;
     private Rigidbody2D rb;
-    private EnemyAI enemyAI;
+    private PlayerHealth pHealth;
 
-    // Start is called before the first frame update
+    public int DP;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.up * moveSpeed;
-        enemyAI = FindObjectOfType<EnemyAI>();
+        pHealth = FindObjectOfType<PlayerHealth>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Destroy " + collision.name);
 
-        if (collision.tag != "Player")
+        if (collision.CompareTag("Player"))
         {
-            enemyAI.state = EnemyAI.State.Hurt;
-            Destroy(gameObject);
-        }           
+            //pHealth.Hurt(DP);          
+        } 
+
+        Destroy(gameObject);         
     }
 
 }

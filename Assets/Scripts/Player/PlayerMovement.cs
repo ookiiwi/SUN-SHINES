@@ -10,17 +10,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask GroundLayerMask;
     private Rigidbody2D rb;
     public Animator animator;
-    private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxCollider2D;
-    private Transform firePoint;
     private bool facingRight = true;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider2D = transform.GetComponent<BoxCollider2D>();
-        firePoint = GameObject.FindGameObjectWithTag("Hit Point").GetComponent<Transform>();
 
     }
 

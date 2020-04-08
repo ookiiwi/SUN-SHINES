@@ -15463,6 +15463,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6960653181251224772, guid: 38768b6f6755eb641aea87890c2de1ba,
+        type: 3}
+      propertyPath: initDelayAttacks
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8766158692836087994, guid: 38768b6f6755eb641aea87890c2de1ba,
         type: 3}
       propertyPath: m_LocalPosition.x

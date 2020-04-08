@@ -9,14 +9,16 @@ public class E_Health : MonoBehaviour
     public EnemyAI enemyAI;
     public EnemyController enemyController;
     public E_CheckBack e_CheckBack;
+    public HealthBar healthBar;
 
     public void Hurt(int DP, Transform weapon)
     {
         HP -= DP;
+
         enemyAI.animator.SetTrigger("IsHurt");
         enemyController.Move(enemyAI.rb, 0 * enemyAI.dir.normalized.x);
 
-        Debug.Log("Hurt() called");
+        Debug.Log("HP: " + HP);
 
         if (HP <= 0)
         {
@@ -25,10 +27,10 @@ public class E_Health : MonoBehaviour
         }
 
         enemyAI.state = EnemyAI.State.Patrol;
+
         e_CheckBack.Check(weapon, enemyController.facingRight);
 
-        
-        Debug.Log("Hurt");
+        healthBar.Bar(HP);
     }
 
     private void Die()

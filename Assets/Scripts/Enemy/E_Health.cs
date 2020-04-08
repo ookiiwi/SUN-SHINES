@@ -13,7 +13,7 @@ public class E_Health : MonoBehaviour
     {
         HP -= DP;
         enemyAI.animator.SetTrigger("IsHurt");
-        enemyController.move(enemyAI.rb, 0 * enemyAI.dir.normalized.x);
+        enemyController.Move(enemyAI.rb, 0 * enemyAI.dir.normalized.x);
 
         Debug.Log("Hurt() called");
 

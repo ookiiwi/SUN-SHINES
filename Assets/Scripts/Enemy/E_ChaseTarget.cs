@@ -4,23 +4,14 @@ using UnityEngine;
 
 public class E_ChaseTarget : MonoBehaviour
 {
-    private Transform target;
-
     public EnemyAI enemyAI;
     public EnemyController enemyController;
-
-    private void Start()
-    {
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-    }
+    public E_Patrol e_Patrol;
 
     public void ChaseTarget(RaycastHit2D hit, RaycastHit2D inRange)
     {
-        enemyController.move(enemyAI.rb, enemyAI.moveSpeed * enemyAI.dir.normalized.x);
-
         if (hit.collider == null)
         {
-
             enemyAI.state = EnemyAI.State.Patrol;
             enemyAI.animator.SetBool("IsRunning", false);
 
@@ -34,5 +25,7 @@ public class E_ChaseTarget : MonoBehaviour
 
             return;
         }
+        
+        enemyController.Move(enemyAI.rb, e_Patrol.moveSpeed);
     }
 }

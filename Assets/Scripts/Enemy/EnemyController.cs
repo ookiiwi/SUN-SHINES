@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     private bool facingRight = true;
 
-    public void move(Rigidbody2D rb, float dir)
+    public void Move(Rigidbody2D rb, float dir)
     {
         rb.velocity = new Vector2(dir, rb.transform.position.y);
 

@@ -14,8 +14,7 @@ public class E_Patrol : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rb;
 
-    private float dist;
-    private float moveSpeed;
+    public float moveSpeed;
 
     public enum PatrolState
     {
@@ -29,7 +28,6 @@ public class E_Patrol : MonoBehaviour
     private void Start()
     {
         delay = initDelay;
-        dist = enemyAI.dist;
         moveSpeed = enemyAI.moveSpeed;
 
         animator = enemyAI.animator;
@@ -88,8 +86,10 @@ public class E_Patrol : MonoBehaviour
 
             case PatrolState.SearchLeft:
                 {
+                    moveSpeed = Mathf.Abs(moveSpeed) * -1f;
+
                     animator.SetBool("IsRunning", true);
-                    enemyController.move(enemyAI.rb, -moveSpeed / 2);
+                    enemyController.Move(enemyAI.rb, moveSpeed / 2);
                     enemyAI.dist = enemyAI.dist < 0 ? enemyAI.dist : -enemyAI.dist;
                     enemyAI.attackrange = enemyAI.attackrange < 0 ? enemyAI.attackrange : -enemyAI.attackrange;
 
@@ -100,8 +100,10 @@ public class E_Patrol : MonoBehaviour
 
             case PatrolState.SearchRight:
                 {
+                    moveSpeed = Mathf.Abs(moveSpeed);
+
                     animator.SetBool("IsRunning", true);
-                    enemyController.move(rb, moveSpeed / 2);
+                    enemyController.Move(rb, moveSpeed / 2);
                     enemyAI.dist = enemyAI.dist > 0 ? enemyAI.dist : -enemyAI.dist;
                     enemyAI.attackrange = enemyAI.attackrange > 0 ? enemyAI.attackrange : -enemyAI.attackrange;
 

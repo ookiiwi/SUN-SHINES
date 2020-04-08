@@ -43,8 +43,6 @@ public class EnemyAI : MonoBehaviour
     private void Update()
     {
         dir = new Vector2(transform.position.x, transform.position.y);
-
-        Debug.Log("Dir: " + dir);
     }
 
 

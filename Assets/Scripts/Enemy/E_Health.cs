@@ -8,8 +8,9 @@ public class E_Health : MonoBehaviour
 
     public EnemyAI enemyAI;
     public EnemyController enemyController;
+    public E_CheckBack e_CheckBack;
 
-    public void Hurt(int DP)
+    public void Hurt(int DP, Transform weapon)
     {
         HP -= DP;
         enemyAI.animator.SetTrigger("IsHurt");
@@ -24,6 +25,9 @@ public class E_Health : MonoBehaviour
         }
 
         enemyAI.state = EnemyAI.State.Patrol;
+        e_CheckBack.Check(weapon, enemyController.facingRight);
+
+        
         Debug.Log("Hurt");
     }
 

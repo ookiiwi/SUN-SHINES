@@ -5,54 +5,19 @@ using UnityEngine;
 public class E_CheckBack : MonoBehaviour
 {
     public E_Patrol e_Patrol;
-    public EnemyAI enemyAI;
-    private float direction;
-    public LayerMask layer;
-    private RaycastHit2D checkBack;
-    private bool stopCheck = false;
 
-    private void FixedUpdate()
+    public void Check(Transform weapon, bool facingRight)
     {
-        direction = Mathf.Sign(enemyAI.dir.x) < 1 ? enemyAI.dir.x : -enemyAI.dir.x;
-
-        checkBack = Physics2D.Linecast(transform.position, new Vector2(direction + 2, 0), layer);
-
-        if (checkBack.collider != null && !stopCheck)
+        if (transform.position.x > weapon.position.x && facingRight)
         {
-            switch (e_Patrol.patrolState)
-            {
-                case E_Patrol.PatrolState.Idle:
-                    {
-                        break;
-                    }
-
-                case E_Patrol.PatrolState.SearchLeft:
-                    {
-                        e_Patrol.patrolState = E_Patrol.PatrolState.SearchRight;
-
-                        break;
-                    }
-
-                case E_Patrol.PatrolState.SearchRight:
-                    {
-                        e_Patrol.patrolState = E_Patrol.PatrolState.SearchLeft;
-
-                        break;
-                    }
-            }
-            
-            stopCheck = true;
-            Debug.Log("Hit back");   
+            e_Patrol.patrolState = E_Patrol.PatrolState.SearchLeft;
+            return; 
         }
 
-        else if (checkBack.collider == null && stopCheck)
+        else if (transform.position.x < weapon.position.x && !facingRight)
         {
-            stopCheck = false;
-
-            Debug.Log("Reset stopCheck");
+            e_Patrol.patrolState = E_Patrol.PatrolState.SearchRight;
+            return;
         }
-
-        
-        
     }
 }

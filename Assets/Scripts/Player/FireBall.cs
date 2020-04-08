@@ -25,10 +25,9 @@ public class FireBall : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             e_health = collision.gameObject.GetComponent<E_Health>();
-            e_health.Hurt(DP); 
+            e_health.Hurt(DP, rb.transform);
         }
         
         Destroy(gameObject);           
     }
-
 }

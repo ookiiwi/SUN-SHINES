@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    private bool facingRight = true;
+    public bool facingRight = true;
 
     public void Move(Rigidbody2D rb, float dir)
     {

@@ -257,6 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAI: {fileID: 3168550523485069367}
   enemyController: {fileID: 7580018104884125577}
+  e_Patrol: {fileID: 3731059020417792872}
 --- !u!114 &3731059020417792872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,6 +272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAI: {fileID: 3168550523485069367}
   enemyController: {fileID: 7580018104884125577}
+  moveSpeed: 0
   patrolState: 0
 --- !u!114 &7831317452808255053
 MonoBehaviour:

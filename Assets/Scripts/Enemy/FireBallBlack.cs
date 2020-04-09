@@ -24,10 +24,11 @@ public class FireBallBlack : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             p_health = collision.gameObject.GetComponent<PlayerHealth>();
-            p_health.Hurt(DP);          
+            p_health.Hurt(DP); 
+            Destroy(gameObject);          
         } 
 
-        Destroy(gameObject);         
+                
     }
 
 }

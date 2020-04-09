@@ -26,8 +26,9 @@ public class FireBall : MonoBehaviour
         {
             e_health = collision.gameObject.GetComponent<E_Health>();
             e_health.Hurt(DP, rb.transform);
+            Destroy(gameObject); 
         }
         
-        Destroy(gameObject);           
+                  
     }
 }

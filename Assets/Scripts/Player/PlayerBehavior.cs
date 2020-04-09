@@ -38,6 +38,11 @@ public class PlayerBehavior : MonoBehaviour
             state = State.Idle;
         }
 
+        else if (!pM.OnLand())
+        {
+            state = State.Jump;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             state = State.Jump;

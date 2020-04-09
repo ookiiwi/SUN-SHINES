@@ -26,9 +26,11 @@ public class E_Health : MonoBehaviour
             return;
         }
 
-        enemyAI.state = EnemyAI.State.Patrol;
+        
 
         e_CheckBack.Check(weapon, enemyController.facingRight);
+        
+        enemyAI.state = EnemyAI.State.Patrol;
 
         healthBar.Bar(HP);
     }

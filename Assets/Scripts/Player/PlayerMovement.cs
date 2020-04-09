@@ -10,14 +10,20 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask GroundLayerMask;
     private Rigidbody2D rb;
     public Animator animator;
-    private BoxCollider2D boxCollider2D;
     private bool facingRight = true;
+    private RaycastHit2D groundCheck;
+    public BoxCollider2D b_collider;
+    private float extraHeight = 0.1f;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        boxCollider2D = transform.GetComponent<BoxCollider2D>();
+        //b_collider = GetComponent<Boxb_collider2D>();
+    }
 
+    private void FixedUpdate()
+    {
+        groundCheck = Physics2D.BoxCast(b_collider.bounds.center, b_collider.bounds.size, 0, transform.position, extraHeight, GroundLayerMask);
     }
 
     public void Run(float moveX)
@@ -35,8 +41,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 FlipX();
             }
-            //animator.SetBool("IsRunning", true);
-            
         }
     }
 
@@ -44,7 +48,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (OnLand())
         {
-            //animator.SetBool("IsJumping", true);
             rb.velocity = new Vector2(rb.velocity.normalized.x, Vector2.up.y) * JUMP_VELOCITY;
             
             Debug.Log("Jumping");
@@ -53,14 +56,25 @@ public class PlayerMovement : MonoBehaviour
 
     public bool OnLand()
     {
-        if (boxCollider2D.IsTouchingLayers(GroundLayerMask))
+        Color rayColor = Color.green;
+
+        Vector3 b_colliderExtents = new Vector3(b_collider.bounds.extents.x + extraHeight, b_collider.bounds.extents.y + extraHeight);
+
+        if (groundCheck.collider)
         {
-            //Debug.Log("OnLand");
-            return true;
+            rayColor = Color.red;
         }
 
-        //Debug.Log("!OnLand");
-        return false;
+        //bottom
+        Debug.DrawLine(b_collider.bounds.center - b_colliderExtents, b_collider.bounds.center + new Vector3(b_colliderExtents.x, -b_colliderExtents.y), rayColor);
+
+        //right
+        Debug.DrawLine(b_collider.bounds.center + b_colliderExtents, b_collider.bounds.center + new Vector3(b_colliderExtents.x, -b_colliderExtents.y), rayColor);
+
+        //left
+        Debug.DrawLine(b_collider.bounds.center - b_colliderExtents, b_collider.bounds.center + new Vector3(-b_colliderExtents.x, b_colliderExtents.y), rayColor);
+
+        return groundCheck.collider;
     }
 
     private void FlipX()

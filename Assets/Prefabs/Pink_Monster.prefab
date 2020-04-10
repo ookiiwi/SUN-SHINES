@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 2033551777986656213}
   - component: {fileID: 2985562359012136782}
   - component: {fileID: 1831080965}
+  - component: {fileID: 1167678502561920599}
+  - component: {fileID: 1710847640}
   m_Layer: 9
   m_Name: Pink_Monster
   m_TagString: Player
@@ -175,7 +177,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   animator: {fileID: 2033551777986656212}
-  b_collider: {fileID: 2033551777986656211}
 --- !u!114 &2033551777986656213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,12 +215,42 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2033551777986656210}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 000eefe5815541d4b8108535333dd7b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 100
+--- !u!114 &1167678502561920599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033551777986656210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d20193cc2a64341932a328476ca15e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHP: 400
+  HP: 0
+  hearts: 3
+  XP: 10
+  level: 1
+--- !u!114 &1710847640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033551777986656210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26affa2b57d32db4486d698e91187aa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterData: {fileID: 1167678502561920599}
 --- !u!1 &4895824986896479628
 GameObject:
   m_ObjectHideFlags: 0

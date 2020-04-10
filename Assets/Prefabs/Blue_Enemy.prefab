@@ -106,8 +106,9 @@ GameObject:
   - component: {fileID: 6960653181251224772}
   - component: {fileID: 4999375190606513416}
   - component: {fileID: 3731059020417792872}
-  - component: {fileID: 7831317452808255053}
   - component: {fileID: 4645913954691944476}
+  - component: {fileID: 1443971790579469816}
+  - component: {fileID: 1792432472}
   m_Layer: 10
   m_Name: Blue_Enemy
   m_TagString: Enemy
@@ -310,7 +311,7 @@ MonoBehaviour:
   e_Attack: {fileID: 6960653181251224772}
   e_ChaseTarget: {fileID: 4999375190606513416}
   e_Patrol: {fileID: 3731059020417792872}
-  e_Health: {fileID: 7831317452808255053}
+  e_Health: {fileID: 0}
   rb: {fileID: 8766158692836087996}
   dir: {x: 0, y: 0}
   state: 0
@@ -362,23 +363,6 @@ MonoBehaviour:
   enemyController: {fileID: 7580018104884125577}
   moveSpeed: 5
   patrolState: 0
---- !u!114 &7831317452808255053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8766158692836087998}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e411b0f9840bfa4c88740a6d1885435, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 100
-  enemyAI: {fileID: 3168550523485069367}
-  enemyController: {fileID: 7580018104884125577}
-  e_CheckBack: {fileID: 4645913954691944476}
-  healthBar: {fileID: 4580560194076736896}
 --- !u!114 &4645913954691944476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,6 +376,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   e_Patrol: {fileID: 3731059020417792872}
+--- !u!114 &1443971790579469816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8766158692836087998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d20193cc2a64341932a328476ca15e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHP: 200
+  HP: 0
+  hearts: 2
+  XP: 10
+  level: 1
+--- !u!114 &1792432472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8766158692836087998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26affa2b57d32db4486d698e91187aa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterData: {fileID: 1443971790579469816}
 --- !u!1001 &156763884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -467,15 +481,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 156763884}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4580560194076736896 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4580560193961917292, guid: bf4a7f18fd0fc584b8bb51b00a7c1fb0,
-    type: 3}
-  m_PrefabInstance: {fileID: 156763884}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f14ea03da2ea874f834acccd924eb1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

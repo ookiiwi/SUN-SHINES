@@ -307,9 +307,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d20193cc2a64341932a328476ca15e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useHearts: 1
   MaxHP: 200
   HP: 0
-  hearts: 2
+  hearts: 0
+  emptyHearts: 0
   XP: 10
   level: 1
 --- !u!114 &1792432472
@@ -406,6 +408,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4580560193961917292, guid: bf4a7f18fd0fc584b8bb51b00a7c1fb0,
+        type: 3}
+      propertyPath: characterData
+      value: 
+      objectReference: {fileID: 1443971790579469816}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf4a7f18fd0fc584b8bb51b00a7c1fb0, type: 3}
 --- !u!4 &4187196713786471831 stripped

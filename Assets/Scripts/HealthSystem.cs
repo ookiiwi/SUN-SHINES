@@ -14,7 +14,15 @@ public class HealthSystem : MonoBehaviour
 
     private void Update()
     {
-        if (characterData.emptyHearts >= characterData.hearts)
+        if (!characterData.useHearts)
+        {
+            if (characterData.emptyHearts >= characterData.hearts)
+            {
+                StartCoroutine(Die());
+            }
+        }
+
+        else if (characterData.HP <= 0)
         {
             StartCoroutine(Die());
         }
@@ -31,7 +39,7 @@ public class HealthSystem : MonoBehaviour
 
             animator.SetTrigger("IsHurt");
 
-            Debug.Log(collision.gameObject.name + "Hit");
+            Debug.Log(collision.otherCollider.gameObject.name + "Hit");
         }
     }
 

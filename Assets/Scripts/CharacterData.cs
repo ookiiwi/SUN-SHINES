@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CharacterData : MonoBehaviour
 {
-    public int MaxHP; // in a heart
+    public bool useHearts = false;
+    public int MaxHP;
     public int HP;
     public int hearts;
     public int emptyHearts;

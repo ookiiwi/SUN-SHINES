@@ -15,8 +15,9 @@ public class FireBall : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Destroy " + collision.collider.name);
-
-        Destroy(gameObject);          
+        if (collision.collider.gameObject.layer != collision.otherCollider.gameObject.layer)
+        {
+            Destroy(gameObject);
+        }
     }
 }

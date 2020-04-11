@@ -48,8 +48,6 @@ public class E_CheckForTarget : MonoBehaviour
     {
         chaseZone = Physics2D.Linecast(transform.position + attackDist, transform.position + chaseDist, targetLayer);
 
-        Debug.Log(chaseZone.collider);
-
         chaseZone2 = Physics2D.Linecast(transform.position + rayOffsetY + attackDist, transform.position + rayOffsetY + chaseDist, targetLayer);
 
         chaseZone3 = Physics2D.Linecast(transform.position - rayOffsetY + attackDist, transform.position  - rayOffsetY + chaseDist, targetLayer);
@@ -113,6 +111,4 @@ public class E_CheckForTarget : MonoBehaviour
             animator.SetBool("IsAttacking", false);
         }
     }
-
-
 }

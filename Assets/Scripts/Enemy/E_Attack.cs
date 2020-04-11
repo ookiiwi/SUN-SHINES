@@ -6,6 +6,7 @@ public class E_Attack : StateMachineBehaviour
 {
     public GameObject fireBall;
     private Transform firePoint;
+    [HideInInspector] public GameObject fireBallInst;
     public float initDelayBetweenAttack;
     private float delayAttack;
 
@@ -19,7 +20,7 @@ public class E_Attack : StateMachineBehaviour
     {
         if (delayAttack <= 0)
         {
-            Instantiate(fireBall, firePoint.position, firePoint.rotation);
+            fireBallInst = Instantiate(fireBall, firePoint.position, firePoint.rotation);
             delayAttack = initDelayBetweenAttack;
 
             Debug.Log("Attack");
@@ -29,8 +30,5 @@ public class E_Attack : StateMachineBehaviour
         {
             delayAttack -= Time.deltaTime;
         }
-
-
-        Debug.Log(delayAttack);
     }
 }

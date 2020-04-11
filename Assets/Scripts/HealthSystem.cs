@@ -5,6 +5,12 @@ using UnityEngine;
 public class HealthSystem : MonoBehaviour
 {
     public CharacterData characterData;
+    private Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -12,8 +18,6 @@ public class HealthSystem : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        Debug.Log("health");
     }
 
 
@@ -24,6 +28,8 @@ public class HealthSystem : MonoBehaviour
         {
             WeaponData weaponData = collision.gameObject.GetComponent<WeaponData>();
             characterData.HP -= weaponData.DP;
+
+            animator.SetTrigger("IsHurt");
 
             Debug.Log(collision.gameObject.name + "Hit");
         }

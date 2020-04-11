@@ -8830,16 +8830,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hearts:
-  - {fileID: 802226548}
-  - {fileID: 2094517763}
-  - {fileID: 1841385649}
+  - {fileID: 802226546}
+  - {fileID: 2094517761}
+  - {fileID: 1841385647}
   heartSprites:
   - {fileID: 21300000, guid: 3e152f49d50b96c498099402c8365f67, type: 3}
   - {fileID: 21300000, guid: 26be7ae8faec3744ab90696a7a5956c4, type: 3}
   - {fileID: 21300000, guid: f67863cb28d8efc4691a1b010fe618e4, type: 3}
   - {fileID: 21300000, guid: 036af28a4f472194897c3dd347ca239f, type: 3}
   - {fileID: 21300000, guid: 5f58ebd5dfc7a6140a26cb688aac17ee, type: 3}
-  playerData: {fileID: 0}
+  playerData: {fileID: 2097628267}
 --- !u!1001 &628845581
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28607,6 +28607,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2096079540}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2097628267 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1167678502561920599, guid: 7b18654626920274fb7ea9a0bd03a89a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2033551777722488866}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d20193cc2a64341932a328476ca15e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2103021169
 PrefabInstance:
   m_ObjectHideFlags: 0

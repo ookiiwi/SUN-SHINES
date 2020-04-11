@@ -7,7 +7,10 @@ public class E_CheckForTarget : MonoBehaviour
     public Animator animator;
     public EnemyController enemyController;
 
+    public bool goOpposite = false;
+
     public LayerMask targetLayer;
+    public LayerMask friendLayer;
 
     private RaycastHit2D chaseZone;
     private RaycastHit2D chaseZone2;
@@ -15,9 +18,11 @@ public class E_CheckForTarget : MonoBehaviour
     private RaycastHit2D attackZone;
     private RaycastHit2D attackZone2;
     private RaycastHit2D attackZone3;
+    private RaycastHit2D friendZone;
 
     public Vector3 chaseDist;
     public Vector3 attackDist;
+    public Vector3 friendRayOffset;
     private Vector3 rayOffsetY;
 
     private float extentsY;
@@ -34,12 +39,14 @@ public class E_CheckForTarget : MonoBehaviour
         {
             chaseDist = chaseDist.x < 0 ? chaseDist : -chaseDist;
             attackDist = attackDist.x < 0 ? attackDist : -attackDist;
+            friendRayOffset = friendRayOffset.x < 0 ? friendRayOffset : -friendRayOffset;
         }
         
         else if (enemyController.facingRight)
         {
             chaseDist = chaseDist.x > 0 ? chaseDist : -chaseDist;
             attackDist = attackDist.x > 0 ? attackDist : -attackDist;
+            friendRayOffset = friendRayOffset.x > 0 ? friendRayOffset : -friendRayOffset;
         }
     }
 
@@ -58,11 +65,28 @@ public class E_CheckForTarget : MonoBehaviour
 
         attackZone3 = Physics2D.Linecast(transform.position - rayOffsetY, transform.position - rayOffsetY + attackDist, targetLayer);
 
+        friendZone = Physics2D.Linecast(transform.position + friendRayOffset, transform.position + attackDist, friendLayer);
+
         Check();
     }
 
     private void Check()
     {
+        
+
+        if (friendZone.collider != null)
+        {
+            Debug.DrawLine(transform.position + friendRayOffset, transform.position + attackDist, Color.blue);
+
+            Debug.Log("Friend");
+
+            goOpposite = true;
+
+            animator.SetBool("IsPatrolling", true);
+
+            return;
+        }
+
         //chase zone
         if (chaseZone.collider != null || chaseZone2.collider != null || chaseZone3.collider != null)
         {
@@ -95,6 +119,7 @@ public class E_CheckForTarget : MonoBehaviour
             Debug.DrawLine(transform.position + rayOffsetY, transform.position + rayOffsetY + attackDist, Color.cyan);
 
             Debug.DrawLine(transform.position - rayOffsetY, transform.position - rayOffsetY + attackDist, Color.cyan);
+
 
             animator.SetBool("IsAttacking", true);
         }

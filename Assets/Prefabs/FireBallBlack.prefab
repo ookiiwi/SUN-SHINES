@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7531022547554157078}
   - component: {fileID: 7578764915966592820}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: HitZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 4776915092219893830}
   - component: {fileID: 6580666070947118489}
   - component: {fileID: 1315504405254380669}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: FireBallBlack
   m_TagString: Weapon
   m_Icon: {fileID: 0}

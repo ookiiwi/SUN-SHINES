@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4180461898132031997}
   - component: {fileID: 7250081271496103369}
   - component: {fileID: -8492177214755127589}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Fireball
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4042552629384263258}
   - component: {fileID: 5297333616593160765}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: HitZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}

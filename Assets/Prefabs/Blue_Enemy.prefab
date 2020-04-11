@@ -135,8 +135,12 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 512
+  friendLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   chaseDist: {x: 8, y: 0, z: 0}
   attackDist: {x: 4, y: 0, z: 0}
+  friendRayOffset: {x: 0.16, y: 0, z: 0}
 --- !u!1 &8766158692836087998
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,7 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useHearts: 1
-  MaxHP: 200
+  MaxHP: 100
   HP: 0
   hearts: 0
   emptyHearts: 0

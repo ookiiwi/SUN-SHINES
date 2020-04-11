@@ -23,9 +23,6 @@ public class HealthBar : MonoBehaviour
         Bar();
 
         HP = characterData.HP;
-
-        Debug.Log("prev HP: " + prevHP);
-        Debug.Log("HP/100: " + (characterData.HP / 100));
     }
 
     private void LateUpdate()

@@ -2,40 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class E_Attack : MonoBehaviour
+public class E_Attack : StateMachineBehaviour
 {
-    public Transform firePoint;
     public GameObject fireBall;
+    private Transform firePoint;
+    public float initDelayBetweenAttack;
+    private float delayAttack;
 
-    public EnemyAI enemyAI;
-
-    public float initDelayAttacks;
-    static private float delayBetweenAttacks = 0;
-
-    public void Attack(RaycastHit2D inRange)
+    public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        if (inRange.collider == null)
+        firePoint = animator.transform.Find("Fire Point");
+        delayAttack = initDelayBetweenAttack;
+    }
+
+    public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+    {
+        if (delayAttack <= 0)
         {
-            enemyAI.state = EnemyAI.State.Chase;
-
-            return;
-        }
-
-        if (delayBetweenAttacks <= 0)
-        {
-            delayBetweenAttacks = initDelayAttacks;
-
-            enemyAI.animator.SetBool("Attack", true);
             Instantiate(fireBall, firePoint.position, firePoint.rotation);
+            delayAttack = initDelayBetweenAttack;
 
-            Debug.Log("Instantiate black fireBall");
+            Debug.Log("Attack");
         }
 
         else
         {
-            delayBetweenAttacks -= Time.deltaTime;
+            delayAttack -= Time.deltaTime;
         }
 
-        enemyAI.state = EnemyAI.State.Attack;
+
+        Debug.Log(delayAttack);
     }
 }

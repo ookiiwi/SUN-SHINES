@@ -2,30 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class E_ChaseTarget : MonoBehaviour
+public class E_ChaseTarget : StateMachineBehaviour
 {
-    public EnemyAI enemyAI;
-    public EnemyController enemyController;
-    public E_Patrol e_Patrol;
+    public float moveSpeed;
+    private EnemyController enemyController;
+    private E_CheckForTarget checkForTarget;
+    private float dir;
 
-    public void ChaseTarget(RaycastHit2D hit, RaycastHit2D inRange)
+    public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        if (hit.collider == null)
-        {
-            enemyAI.state = EnemyAI.State.Patrol;
-            enemyAI.animator.SetBool("IsRunning", false);
+        enemyController = animator.GetComponent<EnemyController>();
+        checkForTarget = animator.GetComponentInChildren<E_CheckForTarget>();
+    }
 
-            return;
-        }
+    public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+    {
+        dir = Mathf.Sign(checkForTarget.chaseDist.x) * 1;
 
-        if (inRange.collider != null) 
-        {
-            enemyAI.state = EnemyAI.State.Attack;
-            enemyAI.animator.SetBool("IsRunning", false);
-
-            return;
-        }
-        
-        enemyController.Move(enemyAI.rb, e_Patrol.moveSpeed);
+        enemyController.Move(dir * moveSpeed);
     }
 }

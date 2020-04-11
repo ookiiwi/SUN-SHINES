@@ -2,115 +2,61 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class E_Patrol : MonoBehaviour
+public class E_Patrol : StateMachineBehaviour
 {
-    private float initDelay = 5f;
-    private float delay;
-    private bool delayPasse = true;
-
-    public EnemyAI enemyAI;
-    public EnemyController enemyController;
-
-    private Animator animator;
-    private Rigidbody2D rb;
-
+    private EnemyController enemyController;
+    private E_CheckForTarget checkForTarget;
+    private int random;
+    private int dir = 1;
     public float moveSpeed;
+    public float initAnimTime;
+    private float animTime;
+    private bool prevRight = false;
 
-    public enum PatrolState
+
+    public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Idle,
-        SearchRight,
-        SearchLeft
-    };
+        enemyController = animator.GetComponent<EnemyController>();
 
-    public PatrolState patrolState;
-    
-    private void Start()
-    {
-        delay = initDelay;
-        moveSpeed = enemyAI.moveSpeed;
-
-        animator = enemyAI.animator;
-        rb = enemyAI.rb;
-
-        patrolState = PatrolState.Idle;
+        animTime = 0;
     }
 
-    public void SearchTarget(RaycastHit2D hit)
+    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (hit.collider != null)
+        /****Patrol routine****/
+        if (animTime <= 0)
         {
-            enemyAI.state = EnemyAI.State.Chase;
-            animator.SetBool("IsRunning", true);
+            random = Random.Range(0, 3);
+            if (random == 2)
+                animator.SetBool("IsPatrolling", false);
 
-            return;
+            animTime = initAnimTime;
+            prevRight = !prevRight;
         }
 
-        if (delayPasse)
-        {
-            switch (Random.Range(0, 3))
-            {
-                case 0:
-                    patrolState = PatrolState.Idle;
-                    break;
-
-                case 1:
-                    patrolState = PatrolState.SearchLeft;
-                    break;
-
-                case 2:
-                    patrolState = PatrolState.SearchRight;
-                    break;
-            }
-        }
-
-        if (delay > 0)
-        {
-            delay -= Time.deltaTime;
-            delayPasse = false;
-        }
         else
         {
-            delay = initDelay;
-            delayPasse = true;
+            animTime -= Time.deltaTime;
         }
-
-        switch (patrolState)
+        
+        // go right
+        if (!prevRight && animTime >= 0)
         {
-            case PatrolState.Idle:
-                {
-                    animator.SetBool("IsRunning", false);
-                    Debug.Log("Patrol idle");
-                    break;
-                }
-
-            case PatrolState.SearchLeft:
-                {
-                    moveSpeed = Mathf.Abs(moveSpeed) * -1f;
-
-                    animator.SetBool("IsRunning", true);
-                    enemyController.Move(enemyAI.rb, moveSpeed / 2);
-                    enemyAI.dist = enemyAI.dist < 0 ? enemyAI.dist : -enemyAI.dist;
-                    enemyAI.attackrange = enemyAI.attackrange < 0 ? enemyAI.attackrange : -enemyAI.attackrange;
-
-                    Debug.Log("Patrol search left");
-
-                    break;
-                }
-
-            case PatrolState.SearchRight:
-                {
-                    moveSpeed = Mathf.Abs(moveSpeed);
-
-                    animator.SetBool("IsRunning", true);
-                    enemyController.Move(rb, moveSpeed / 2);
-                    enemyAI.dist = enemyAI.dist > 0 ? enemyAI.dist : -enemyAI.dist;
-                    enemyAI.attackrange = enemyAI.attackrange > 0 ? enemyAI.attackrange : -enemyAI.attackrange;
-
-                    Debug.Log("Patrol search right");
-
-                    break;
-                }
+            
+            enemyController.Move(dir * moveSpeed);
         }
+
+        //go left
+        else if (prevRight && animTime >= 0)
+        {
+            enemyController.Move(-dir * moveSpeed);
+        }
+
+        /****Patrol Routine****/
+    }
+
+    public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+    {
+        animator.SetBool("IsPatrolling", false);
     }
 }

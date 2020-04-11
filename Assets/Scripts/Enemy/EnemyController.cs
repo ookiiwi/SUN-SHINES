@@ -5,8 +5,9 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     public bool facingRight = true;
+    public Rigidbody2D rb;
 
-    public void Move(Rigidbody2D rb, float dir)
+    public void Move(float dir)
     {
         rb.velocity = new Vector2(dir, rb.transform.position.y);
 

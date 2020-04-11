@@ -7,6 +7,7 @@ public class CharacterData : MonoBehaviour
     public int MaxHP; // in a heart
     public int HP;
     public int hearts;
+    public int emptyHearts;
     public int XP;
     public int level;
 

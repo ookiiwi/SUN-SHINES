@@ -14,9 +14,9 @@ public class HealthSystem : MonoBehaviour
 
     private void Update()
     {
-        if (characterData.HP <= 0)
+        if (characterData.emptyHearts >= characterData.hearts)
         {
-            Destroy(gameObject);
+            StartCoroutine(Die());
         }
     }
 
@@ -35,5 +35,11 @@ public class HealthSystem : MonoBehaviour
         }
     }
 
+    private IEnumerator Die()
+    {
+        animator.SetTrigger("Death");
 
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
+    }
 }

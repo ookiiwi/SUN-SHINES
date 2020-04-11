@@ -81,7 +81,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6812335334228273102}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.16, y: 0.068, z: 0}
+  m_LocalPosition: {x: 0.7, y: 0.068, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8766158692836087994}
@@ -132,7 +132,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 509764214}
   enemyController: {fileID: 4625016915565910596}
-  shotForward: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -149,7 +148,6 @@ GameObject:
   - component: {fileID: 8766158692836087994}
   - component: {fileID: 8766158692836087995}
   - component: {fileID: 8766158692836087996}
-  - component: {fileID: 3803358511256308528}
   - component: {fileID: 8766158692836087997}
   - component: {fileID: 509764214}
   - component: {fileID: 1443971790579469816}
@@ -252,32 +250,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &3803358511256308528
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8766158692836087998}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.17051029, y: -0.062205225}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.034397602, y: 0.595915}
-  m_EdgeRadius: 0
 --- !u!61 &8766158692836087997
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -353,9 +325,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 1443971790579469816}
-  ignoreLayer:
-    serializedVersion: 2
-    m_Bits: 1024
 --- !u!114 &4625016915565910596
 MonoBehaviour:
   m_ObjectHideFlags: 0

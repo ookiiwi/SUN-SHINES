@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 2033551777986656215}
   - component: {fileID: 2033551777986656213}
   - component: {fileID: 2985562359012136782}
-  - component: {fileID: 1831080965}
   - component: {fileID: 1167678502561920599}
   - component: {fileID: 1710847640}
   m_Layer: 9
@@ -208,19 +207,6 @@ MonoBehaviour:
   firePoint: {fileID: 8041753046892120484}
   fireBall: {fileID: 4180461898132031998, guid: 4b9f7f03ac216104cacb1898d6ee564a,
     type: 3}
---- !u!114 &1831080965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2033551777986656210}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 000eefe5815541d4b8108535333dd7b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 100
 --- !u!114 &1167678502561920599
 MonoBehaviour:
   m_ObjectHideFlags: 0

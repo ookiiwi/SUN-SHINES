@@ -5,33 +5,33 @@ using System;
 
 public class Parallax : MonoBehaviour
 {
-    [SerializeField] private float parallaxHorizontal;
-    [SerializeField] private GameObject cam;
-    private float startPos, spriteLenght;
+    public Vector2 parallaxFX;
+
+    private Transform cam;
+    private Vector3 lastCamPos;
+    private float texturePerUnitSizeX;
+    
 
     private void Start()
     {
-        startPos = transform.position.x;
-        spriteLenght = GetComponent<SpriteRenderer>().bounds.size.x;
+        cam = Camera.main.transform;
+        lastCamPos = cam.position;
+
+        Sprite sprite = GetComponent<SpriteRenderer>().sprite;
+        Texture2D texture = sprite.texture;
+        texturePerUnitSizeX = texture.width / sprite.pixelsPerUnit;
     }
 
     private void FixedUpdate()
     {
-        //float temp = (cam.transform.position.x * (1 - parallaxHorizontal));
-        float dist = cam.transform.position.x * parallaxHorizontal;
-        
-        transform.position = new Vector3(startPos + dist, transform.position.y, transform.position.z);
+        Vector3 deltaMovement = cam.position - lastCamPos;
+        transform.position += new Vector3(deltaMovement.x * parallaxFX.x, deltaMovement.y * parallaxFX.y);
+        lastCamPos = cam.position;
 
-        //if (temp > startPos + spriteLenght)
-        //{
-        //    startPos += spriteLenght;
-        //}
-        //
-        //else if (temp < startPos - spriteLenght)
-        //{
-        //    startPos -= spriteLenght;
-        //}
-
+        if (Mathf.Abs(cam.position.x - transform.position.x) >= texturePerUnitSizeX)
+        {
+            float offsetPostionX = (cam.position.x - transform.position.x) % texturePerUnitSizeX;
+            transform.position = new Vector3(cam.position.x + offsetPostionX, transform.position.y);
+        }
     }
-
 }

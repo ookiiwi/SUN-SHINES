@@ -22,7 +22,7 @@ public class Parallax : MonoBehaviour
         texturePerUnitSizeX = texture.width / sprite.pixelsPerUnit;
     }
 
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         Vector3 deltaMovement = cam.position - lastCamPos;
         transform.position += new Vector3(deltaMovement.x * parallaxFX.x, deltaMovement.y * parallaxFX.y);

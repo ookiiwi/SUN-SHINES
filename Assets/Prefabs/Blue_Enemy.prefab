@@ -132,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 509764214}
   enemyController: {fileID: 4625016915565910596}
+  goOpposite: 0
   targetLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -311,7 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d20193cc2a64341932a328476ca15e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useHearts: 1
+  useHearts: 0
   MaxHP: 100
   HP: 0
   hearts: 0

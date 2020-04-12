@@ -9,7 +9,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float JUMP_VELOCITY = 5f;
     [SerializeField] private LayerMask GroundLayerMask;
     private Rigidbody2D rb;
-    public Animator animator;
     private BoxCollider2D boxCollider2D;
     private bool facingRight = true;
 
@@ -34,9 +33,7 @@ public class PlayerMovement : MonoBehaviour
             else if (moveX < 0 && facingRight)
             {
                 FlipX();
-            }
-            //animator.SetBool("IsRunning", true);
-            
+            }            
         }
     }
 

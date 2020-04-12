@@ -14,7 +14,7 @@ public class HealthSystem : MonoBehaviour
 
     private void Update()
     {
-        if (!characterData.useHearts)
+        if (characterData.useHearts)
         {
             if (characterData.emptyHearts >= characterData.hearts)
             {

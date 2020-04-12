@@ -13,11 +13,10 @@ GameObject:
   - component: {fileID: 2033551777986656208}
   - component: {fileID: 2033551777986656211}
   - component: {fileID: 2033551777986656212}
-  - component: {fileID: 2033551777986656215}
-  - component: {fileID: 2033551777986656213}
-  - component: {fileID: 2985562359012136782}
   - component: {fileID: 1167678502561920599}
   - component: {fileID: 1710847640}
+  - component: {fileID: 7306074829202459407}
+  - component: {fileID: 2977847015587102797}
   m_Layer: 9
   m_Name: Pink_Monster
   m_TagString: Player
@@ -158,7 +157,39 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2033551777986656215
+--- !u!114 &1167678502561920599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033551777986656210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d20193cc2a64341932a328476ca15e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useHearts: 1
+  MaxHP: 400
+  HP: 0
+  hearts: 3
+  emptyHearts: 0
+  XP: 10
+  level: 1
+--- !u!114 &1710847640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033551777986656210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26affa2b57d32db4486d698e91187aa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterData: {fileID: 1167678502561920599}
+--- !u!114 &7306074829202459407
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,8 +206,7 @@ MonoBehaviour:
   GroundLayerMask:
     serializedVersion: 2
     m_Bits: 256
-  animator: {fileID: 2033551777986656212}
---- !u!114 &2033551777986656213
+--- !u!114 &2977847015587102797
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,55 +218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1c87080b0a6ae4daca5200af29a5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pM: {fileID: 2033551777986656215}
-  pAttack: {fileID: 2985562359012136782}
   animator: {fileID: 2033551777986656212}
-  state: 0
---- !u!114 &2985562359012136782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2033551777986656210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c68241a6b79d133488669add4a33cd45, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  firePoint: {fileID: 8041753046892120484}
-  fireBall: {fileID: 4180461898132031998, guid: 4b9f7f03ac216104cacb1898d6ee564a,
-    type: 3}
---- !u!114 &1167678502561920599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2033551777986656210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11d20193cc2a64341932a328476ca15e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHP: 400
-  HP: 0
-  hearts: 3
-  XP: 10
-  level: 1
---- !u!114 &1710847640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2033551777986656210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26affa2b57d32db4486d698e91187aa3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterData: {fileID: 1167678502561920599}
+  initDelayAttacks: 0
 --- !u!1 &4895824986896479628
 GameObject:
   m_ObjectHideFlags: 0

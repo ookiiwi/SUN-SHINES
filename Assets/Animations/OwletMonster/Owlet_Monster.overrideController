@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Owlet_Monster
+  m_Controller: {fileID: 9100000, guid: 4343a24bb8b037d45bdaf27bdd47f0af, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: ac361a04eb3b2cc4b9a516848eb64794, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ff8305b7c6c71e1499ad494ada51c950, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 5fee042e4b8ad1e4db067e399b598ceb, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 455352da0530d4f4aab7c7a459427a5a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f49fe79192a38854d83889922ad7b73b, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 59447f3da5d2fe64092ca52c611b8d0a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 02838b81b4bc21e4b857828887e2b844, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5db7814dfabe9bb45a2edec5d9db9f94, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: bee33409b855fe341afed96fc12e3909, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d9b9b27d8bb4d4a469aafd746177e75b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b508ed63befcc0c488be708eae4d7777, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 393ebda21a8f5f042b46028bb8e2395e, type: 2}

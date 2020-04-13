@@ -5,20 +5,22 @@ using UnityEngine;
 public class P_run : StateMachineBehaviour
 {
     private PlayerMovement playerMovement;
+    private PlayerManager playerManager;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
         playerMovement = animator.GetComponent<PlayerMovement>();
+        playerManager = animator.GetComponent<PlayerManager>();
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !playerManager.isAI)
         {
             animator.SetBool("IsJumping", true);
         }
 
-        else if (Input.GetAxis("Horizontal") != 0)
+        else if (Input.GetAxis("Horizontal") != 0 && !playerManager.isAI)
         {
             playerMovement.Run(Input.GetAxis("Horizontal"));
         }

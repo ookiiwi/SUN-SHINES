@@ -6,8 +6,10 @@ public class HeartManager : MonoBehaviour
 {
     public List<GameObject> hearts;
     public Sprite[] heartSprites;
-    //public GameObject player;
-    public CharacterData playerData;
+    public GameManager gameManager;
+
+    private CharacterData playerData;
+    private GameObject prevPlayer;
 
     private int currentHeart;
     private int heartStates;
@@ -16,19 +18,23 @@ public class HeartManager : MonoBehaviour
 
     private void Start()
     {
-        //playerHealth = player.GetComponent<CharacterData>();
+        playerData = gameManager.currentPlayer.GetComponent<CharacterData>();
+        prevPlayer = gameManager.currentPlayer;
 
         currentHeart = hearts.Count - 1;
         heartStates = heartSprites.Length - 1;
         currentHeartState = heartStates;
 
         prevHP = playerData.MaxHP;
-
-        //AddHeart();
     }
 
     private void Update()
     {
+        if (gameManager.currentPlayer != null)
+            playerData = gameManager.currentPlayer.GetComponent<CharacterData>();
+
+        CheckNewSelected();
+
         Damage();
     }
 
@@ -39,20 +45,19 @@ public class HeartManager : MonoBehaviour
             if (currentHeartState <= 0)
             {
                 playerData.HP = playerData.MaxHP;
-                
-                --currentHeart;
+
                 currentHeartState = heartStates;
+                --currentHeart;
+
+                Debug.Log("--current heart");
             }
 
-            if (currentHeartState <= 1)
-            {
-                ++playerData.emptyHearts;
-            }
+            hearts[currentHeart].GetComponent<SpriteRenderer>().sprite = heartSprites[currentHeartState--];
 
-            hearts[currentHeart].GetComponent<SpriteRenderer>().sprite = heartSprites[--currentHeartState];
 
             prevHP = playerData.HP;
         }
+
     }
 
     private void AddHeart()
@@ -63,9 +68,71 @@ public class HeartManager : MonoBehaviour
         newHeart.gameObject.transform.position = new Vector3(hearts[hearts.Count - 1].transform.position.x + 0.5f, hearts[hearts.Count - 1].transform.position.y);
 
         hearts.Add(newHeart);
+    }
 
-        ++currentHeart;
-        ++playerData.hearts;
-        --playerData.emptyHearts;
+    private void CheckNewSelected()
+    {
+        int p_hearts = playerData.hearts;
+        int p_emptyHearts = playerData.emptyHearts;
+        int p_HP = playerData.HP;
+
+
+        if (prevPlayer != gameManager.currentPlayer && gameManager.currentPlayer != null)
+        {
+            if (p_emptyHearts < p_hearts)
+            {
+                // check if add hearts
+                if (hearts.Count < p_hearts)
+                {
+                    for (int i = hearts.Count; i < p_hearts; ++i)
+                    {
+                        AddHeart();
+
+                        Debug.Log("Add heart");
+                        Debug.Log("heart: " + p_hearts);
+                        Debug.Log("count: " + hearts.Count);
+                    }
+                }
+
+                // remove hearts
+                else if (hearts.Count > p_hearts)
+                { 
+                    for (int i = hearts.Count - 1; i + 1 > p_hearts;  --i)
+                    {
+                        Destroy(hearts[i]);
+                        hearts.RemoveAt(i);
+
+                        Debug.Log("Remove heart");
+                    }
+                }
+
+
+                //fill every plain hearts except the last one
+                for (int i = 0; i < p_hearts - p_emptyHearts - 1; ++i)
+                {
+                    hearts[i].GetComponent<SpriteRenderer>().sprite = heartSprites[heartSprites.Length - 1];
+                    Debug.Log("Set sprite");
+                }
+
+                //set the right sprite for the last non empty heart
+                currentHeartState = p_HP / 100;
+                currentHeart = p_hearts - p_emptyHearts - 1;
+                hearts[currentHeart].GetComponent<SpriteRenderer>().sprite = heartSprites[currentHeartState];
+
+                if (p_emptyHearts > 0)
+                {
+                    for (int i = p_hearts - p_emptyHearts; i < p_hearts; ++i)
+                    {
+                        hearts[i].GetComponent<SpriteRenderer>().sprite = heartSprites[0];
+
+                        Debug.Log("Empty heart");
+                    }
+                }
+            }
+
+            
+
+            prevPlayer = gameManager.currentPlayer;
+        }
     }
 }

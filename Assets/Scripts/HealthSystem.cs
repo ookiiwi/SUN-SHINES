@@ -25,6 +25,8 @@ public class HealthSystem : MonoBehaviour
         else if (characterData.HP <= 0)
         {
             StartCoroutine(Die());
+
+            Debug.Log("Die");
         }
     }
 

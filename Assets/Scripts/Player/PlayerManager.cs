@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public bool isAI;
     public Animator animator;
+
     public float initDelayAttacks;
     private float delayAttacks;
 
@@ -15,7 +17,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A) && delayAttacks <= 0)
+        if (Input.GetKeyDown(KeyCode.A) && delayAttacks <= 0 && !isAI)
         {
             animator.SetTrigger("Attack");
 
@@ -26,5 +28,7 @@ public class PlayerManager : MonoBehaviour
         {
             delayAttacks -= Time.deltaTime;
         }
+
+
     }
 }

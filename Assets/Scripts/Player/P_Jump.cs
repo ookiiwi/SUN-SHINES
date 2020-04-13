@@ -5,10 +5,12 @@ using UnityEngine;
 public class P_Jump : StateMachineBehaviour
 {
     private PlayerMovement playerMovement;
+    private PlayerManager playerManager;
 
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         playerMovement = animator.GetComponent<PlayerMovement>();
+        playerManager = animator.GetComponent<PlayerManager>();
 
         playerMovement.Jump();
     }
@@ -19,11 +21,13 @@ public class P_Jump : StateMachineBehaviour
         {
             animator.SetBool("IsJumping", false);
         }
+
+        playerMovement.Run(Input.GetAxis("Horizontal"));
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
-        if (Input.GetAxis("Horizontal") != 0)
+        if (Input.GetAxis("Horizontal") != 0 && !playerManager.isAI)
         {
             animator.SetBool("IsRunning", true);
         }

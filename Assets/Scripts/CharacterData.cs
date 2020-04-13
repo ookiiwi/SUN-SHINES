@@ -16,4 +16,16 @@ public class CharacterData : MonoBehaviour
     {
         HP = MaxHP;
     }
+
+    private void Update()
+    {
+        if (useHearts)
+        {
+            if (HP <= 0)
+            {
+                ++emptyHearts;
+                HP = MaxHP;
+            }
+        }
+    }
 }

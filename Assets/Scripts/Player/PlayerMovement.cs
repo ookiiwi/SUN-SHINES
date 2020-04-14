@@ -42,8 +42,6 @@ public class PlayerMovement : MonoBehaviour
         if (OnLand())
         {
             rb.velocity = Vector2.up * JUMP_VELOCITY;
-            
-            Debug.Log("Jumping");
         }
     }
 

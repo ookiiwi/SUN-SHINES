@@ -40,8 +40,6 @@ public class HealthSystem : MonoBehaviour
             characterData.HP -= weaponData.DP;
 
             animator.SetTrigger("IsHurt");
-
-            Debug.Log(collision.otherCollider.gameObject.name + "Hit");
         }
     }
 

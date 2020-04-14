@@ -48,8 +48,6 @@ public class HeartManager : MonoBehaviour
 
                 currentHeartState = heartStates;
                 --currentHeart;
-
-                Debug.Log("--current heart");
             }
 
             hearts[currentHeart].GetComponent<SpriteRenderer>().sprite = heartSprites[currentHeartState--];
@@ -87,10 +85,6 @@ public class HeartManager : MonoBehaviour
                     for (int i = hearts.Count; i < p_hearts; ++i)
                     {
                         AddHeart();
-
-                        Debug.Log("Add heart");
-                        Debug.Log("heart: " + p_hearts);
-                        Debug.Log("count: " + hearts.Count);
                     }
                 }
 
@@ -101,8 +95,6 @@ public class HeartManager : MonoBehaviour
                     {
                         Destroy(hearts[i]);
                         hearts.RemoveAt(i);
-
-                        Debug.Log("Remove heart");
                     }
                 }
 
@@ -111,7 +103,6 @@ public class HeartManager : MonoBehaviour
                 for (int i = 0; i < p_hearts - p_emptyHearts - 1; ++i)
                 {
                     hearts[i].GetComponent<SpriteRenderer>().sprite = heartSprites[heartSprites.Length - 1];
-                    Debug.Log("Set sprite");
                 }
 
                 //set the right sprite for the last non empty heart
@@ -124,8 +115,6 @@ public class HeartManager : MonoBehaviour
                     for (int i = p_hearts - p_emptyHearts; i < p_hearts; ++i)
                     {
                         hearts[i].GetComponent<SpriteRenderer>().sprite = heartSprites[0];
-
-                        Debug.Log("Empty heart");
                     }
                 }
             }

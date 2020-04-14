@@ -11,8 +11,10 @@ public class CarryFriend : MonoBehaviour
     public float maxFriction;
     private float currentFriction;
 
+    private int cntPOnHead = 0;
 
-    private void Start()
+
+    private void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         prevPlayer = gameManager.currentPlayer;
@@ -35,24 +37,41 @@ public class CarryFriend : MonoBehaviour
         {
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
-
+        
+        
             prevPlayer = gameManager.currentPlayer;
+
+            if (gameObject.transform.parent.gameObject.name == "Owlet_Monster")
+                Debug.Log("Changed player: " + prevPlayer.name);
         }
 
-        //apply fritction changement
+        //apply friction changement
         if (currentFriction != gameObject.GetComponent<BoxCollider2D>().friction)
         {
-            gameObject.GetComponent<BoxCollider2D>().sharedMaterial.friction = currentFriction;
+            //check if 2 player on head and if player carrying is the current player to avoid one of the two player on top to getting stuck
+            if (cntPOnHead > 1 && gameObject.transform.parent.gameObject != gameManager.currentPlayer)
+                gameObject.GetComponent<BoxCollider2D>().sharedMaterial.friction = minFriction;
+
+            else
+                gameObject.GetComponent<BoxCollider2D>().sharedMaterial.friction = currentFriction;
 
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
+
+            if (gameObject.transform.parent.gameObject.name == "Owlet_Monster")
+                Debug.Log("Apply new friction for: " + gameObject.transform.parent.gameObject.name);
         }
+
+        if (gameObject.transform.parent.gameObject.name == "Owlet_Monster")
+            Debug.Log("players on head: " + cntPOnHead);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.transform.position.y - collision.collider.bounds.extents.y > collision.otherCollider.transform.position.y + collision.otherCollider.bounds.extents.y)
         {
+            ++cntPOnHead;
+
             if (collision.collider.gameObject != gameManager.currentPlayer)
             {
                 currentFriction = maxFriction;
@@ -68,6 +87,8 @@ public class CarryFriend : MonoBehaviour
     
     private void OnCollisionExit2D(Collision2D collision)
     {
+        if (cntPOnHead > 0) --cntPOnHead;
+
         //reset
         currentFriction = minFriction;
     }

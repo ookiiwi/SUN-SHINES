@@ -48857,7 +48857,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 791e5aa42171e714d9dc4cabe9a4b9d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -50225,30 +50225,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1908177359848714334, guid: 587b5314fb5e129489c976b51ec9b5cd,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.098459005
-      objectReference: {fileID: 0}
-    - target: {fileID: 1908177359848714334, guid: 587b5314fb5e129489c976b51ec9b5cd,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.803082
-      objectReference: {fileID: 0}
     - target: {fileID: 1908177359848714335, guid: 587b5314fb5e129489c976b51ec9b5cd,
         type: 3}
       propertyPath: m_Name
       value: Owlet_Monster
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597642177771919203, guid: 587b5314fb5e129489c976b51ec9b5cd,
-        type: 3}
-      propertyPath: minFriction
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2597642177771919203, guid: 587b5314fb5e129489c976b51ec9b5cd,
-        type: 3}
-      propertyPath: maxFriction
-      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 587b5314fb5e129489c976b51ec9b5cd, type: 3}
@@ -50333,16 +50313,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pink_Monster
       objectReference: {fileID: 0}
-    - target: {fileID: 2033551777986656211, guid: 7b18654626920274fb7ea9a0bd03a89a,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.067377016
-      objectReference: {fileID: 0}
-    - target: {fileID: 2033551777986656211, guid: 7b18654626920274fb7ea9a0bd03a89a,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.86524594
-      objectReference: {fileID: 0}
     - target: {fileID: 2033551777986656214, guid: 7b18654626920274fb7ea9a0bd03a89a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -50398,16 +50368,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5021088276124504675, guid: 7b18654626920274fb7ea9a0bd03a89a,
-        type: 3}
-      propertyPath: minFriction
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5021088276124504675, guid: 7b18654626920274fb7ea9a0bd03a89a,
-        type: 3}
-      propertyPath: maxFriction
-      value: 1000
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b18654626920274fb7ea9a0bd03a89a, type: 3}
 --- !u!4 &2079282069845045029 stripped
@@ -50429,30 +50389,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1930537901}
     m_Modifications:
-    - target: {fileID: 4513732686890653979, guid: 4a535e270b112bc43bf26f1f139e7cd7,
-        type: 3}
-      propertyPath: minFriction
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4513732686890653979, guid: 4a535e270b112bc43bf26f1f139e7cd7,
-        type: 3}
-      propertyPath: maxFriction
-      value: 1000
-      objectReference: {fileID: 0}
     - target: {fileID: 8540322407326484520, guid: 4a535e270b112bc43bf26f1f139e7cd7,
         type: 3}
       propertyPath: m_Name
       value: Dude_Monster
-      objectReference: {fileID: 0}
-    - target: {fileID: 8540322407326484521, guid: 4a535e270b112bc43bf26f1f139e7cd7,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.100025356
-      objectReference: {fileID: 0}
-    - target: {fileID: 8540322407326484521, guid: 4a535e270b112bc43bf26f1f139e7cd7,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.7999493
       objectReference: {fileID: 0}
     - target: {fileID: 8540322407326484524, guid: 4a535e270b112bc43bf26f1f139e7cd7,
         type: 3}

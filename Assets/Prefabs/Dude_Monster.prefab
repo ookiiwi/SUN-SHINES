@@ -130,6 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc66d04a75cbaef4b8a09b54c01b4449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minFriction: 0.4
+  maxFriction: 1000
 --- !u!1 &8540322407326484520
 GameObject:
   m_ObjectHideFlags: 0

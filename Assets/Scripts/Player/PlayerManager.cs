@@ -28,7 +28,5 @@ public class PlayerManager : MonoBehaviour
         {
             delayAttacks -= Time.deltaTime;
         }
-
-
     }
 }

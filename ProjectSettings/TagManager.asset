@@ -9,6 +9,7 @@ TagManager:
   - Attack Zone
   - Chase Zone
   - Fire Point
+  - Head Collider
   layers:
   - Default
   - TransparentFX

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1710847640}
   - component: {fileID: 7306074829202459407}
   - component: {fileID: 2977847015587102797}
-  - component: {fileID: 4907653138874548767}
+  - component: {fileID: 172075172}
   m_Layer: 9
   m_Name: Pink_Monster
   m_TagString: Player
@@ -223,7 +223,7 @@ MonoBehaviour:
   isAI: 0
   animator: {fileID: 2033551777986656212}
   initDelayAttacks: 0
---- !u!114 &4907653138874548767
+--- !u!114 &172075172
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -235,6 +235,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f25602722edbf49b21dcab5cfb7935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMovement: {fileID: 7306074829202459407}
+  animator: {fileID: 2033551777986656212}
+  dist: {x: 1, y: 0, z: 0}
+  offset: {x: 0.26, y: 0, z: 0}
 --- !u!1 &4895824986896479628
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask GroundLayerMask;
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider2D;
-    private bool facingRight = true;
+    public bool facingRight = true;
 
     private void Awake()
     {

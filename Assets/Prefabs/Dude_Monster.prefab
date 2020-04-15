@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 7691569176837245282}
   - component: {fileID: 1142108028171597045}
   - component: {fileID: 4894992227807657911}
-  - component: {fileID: 1178937861316336318}
+  - component: {fileID: 1730641445}
   m_Layer: 9
   m_Name: Dude_Monster
   m_TagString: Player
@@ -354,7 +354,7 @@ MonoBehaviour:
   isAI: 1
   animator: {fileID: 8540322407326484526}
   initDelayAttacks: 0
---- !u!114 &1178937861316336318
+--- !u!114 &1730641445
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -366,3 +366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f25602722edbf49b21dcab5cfb7935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMovement: {fileID: 1142108028171597045}
+  animator: {fileID: 8540322407326484526}
+  dist: {x: 1, y: 0, z: 0}
+  offset: {x: 0.26, y: 0, z: 0}

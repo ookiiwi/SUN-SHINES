@@ -28,5 +28,15 @@ public class PlayerManager : MonoBehaviour
         {
             delayAttacks -= Time.deltaTime;
         }
+
+        if (isAI)
+        {
+            gameObject.GetComponent<PlayerAI>().enabled = true;
+        }
+        
+        else
+        {
+            gameObject.GetComponent<PlayerAI>().enabled = false;
+        }
     }
 }

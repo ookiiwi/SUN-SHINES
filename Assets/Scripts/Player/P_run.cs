@@ -26,7 +26,7 @@ public class P_run : StateMachineBehaviour
         }
 
 
-        else
+        else if (!playerManager.isAI)
         {
             animator.SetBool("IsRunning", false);
         }

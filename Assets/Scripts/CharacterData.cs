@@ -7,6 +7,7 @@ public class CharacterData : MonoBehaviour
     public bool useHearts = false;
     public int MaxHP;
     public int HP;
+    public int prevHP;
     public int hearts;
     public int emptyHearts;
     public int XP;
@@ -15,17 +16,6 @@ public class CharacterData : MonoBehaviour
     public void Start()
     {
         HP = MaxHP;
-    }
-
-    private void Update()
-    {
-        if (useHearts)
-        {
-            if (HP <= 0)
-            {
-                ++emptyHearts;
-                HP = MaxHP;
-            }
-        }
+        prevHP = HP;
     }
 }

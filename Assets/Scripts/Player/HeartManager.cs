@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class HeartManager : MonoBehaviour
@@ -19,13 +18,15 @@ public class HeartManager : MonoBehaviour
     private void Start()
     {
         playerData = gameManager.currentPlayer.GetComponent<CharacterData>();
-        prevPlayer = gameManager.currentPlayer;
+        prevPlayer = null;
 
         currentHeart = hearts.Count - 1;
         heartStates = heartSprites.Length - 1;
         currentHeartState = heartStates;
 
         prevHP = playerData.MaxHP;
+
+        CheckNewSelected();
     }
 
     private void Update()
@@ -40,22 +41,22 @@ public class HeartManager : MonoBehaviour
 
     private void Damage()
     {
-        if (playerData.HP < prevHP)
+        if (playerData.HP < playerData.prevHP)
         {
-            if (currentHeartState <= 0)
-            {
-                playerData.HP = playerData.MaxHP;
+            hearts[currentHeart].GetComponent<SpriteRenderer>().sprite = heartSprites[--currentHeartState];
 
-                currentHeartState = heartStates;
-                --currentHeart;
-            }
-
-            hearts[currentHeart].GetComponent<SpriteRenderer>().sprite = heartSprites[currentHeartState--];
-
-
-            prevHP = playerData.HP;
+            playerData.prevHP = playerData.HP;
         }
 
+        if (currentHeartState < 1)
+        {
+            playerData.HP = playerData.MaxHP;
+            playerData.prevHP = playerData.HP;
+            ++playerData.emptyHearts;
+
+            currentHeartState = heartStates;
+            --currentHeart;
+        }
     }
 
     private void AddHeart()

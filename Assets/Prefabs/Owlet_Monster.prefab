@@ -207,6 +207,7 @@ MonoBehaviour:
   GroundLayerMask:
     serializedVersion: 2
     m_Bits: 768
+  facingRight: 1
 --- !u!114 &3391463093266368448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +230,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908177359848714335}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92f25602722edbf49b21dcab5cfb7935, type: 3}
   m_Name: 
@@ -237,7 +238,12 @@ MonoBehaviour:
   playerMovement: {fileID: 7144945392716778626}
   animator: {fileID: 1908177359848714329}
   dist: {x: 1, y: 0, z: 0}
-  offset: {x: 0.26, y: 0, z: 0}
+  offset: {x: 0.3, y: 0, z: 0}
+  layers:
+    serializedVersion: 2
+    m_Bits: 1536
+  follow: 0
+  followlow: 0
 --- !u!1 &4086230377606883766
 GameObject:
   m_ObjectHideFlags: 0

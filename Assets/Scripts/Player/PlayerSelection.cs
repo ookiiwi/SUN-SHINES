@@ -14,6 +14,8 @@ public class PlayerSelection : MonoBehaviour
 
     private int playerSelected;
 
+    private bool p_AIFollow;
+
     private void Awake()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -27,6 +29,36 @@ public class PlayerSelection : MonoBehaviour
     private void Update()
     {
         CurrentSelection();
+
+        foreach(GameObject player in players)
+        {
+            PlayerAI playerAI = player.GetComponent<PlayerAI>();
+
+            if (player != players[playerSelected])
+            {
+                if (!playerAI.follow)
+                {
+                    p_AIFollow = false;
+
+                    break;
+                }
+
+                else if (playerAI.follow)
+                {
+                    p_AIFollow = true;
+                }
+            }
+        }
+
+        foreach (GameObject player in players)
+        {
+            PlayerAI playerAI = player.GetComponent<PlayerAI>();
+
+            if (player != players[playerSelected])
+            {
+                playerAI.followlow = p_AIFollow;
+            }
+        }
     }
 
     private void OnSelection(Transform player)

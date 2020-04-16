@@ -13,7 +13,7 @@ public class E_Attack : StateMachineBehaviour
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
         firePoint = animator.transform.Find("Fire Point");
-        delayAttack = initDelayBetweenAttack;
+        delayAttack = 0;
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)

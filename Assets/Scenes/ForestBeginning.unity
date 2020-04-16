@@ -33240,7 +33240,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1737896918
 Transform:
   m_ObjectHideFlags: 0
@@ -51139,6 +51139,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Owlet_Monster
       objectReference: {fileID: 0}
+    - target: {fileID: 1908177359848714335, guid: 587b5314fb5e129489c976b51ec9b5cd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 587b5314fb5e129489c976b51ec9b5cd, type: 3}
 --- !u!1001 &1042289715177660767
@@ -51307,6 +51312,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dude_Monster
+      objectReference: {fileID: 0}
+    - target: {fileID: 8540322407326484520, guid: 4a535e270b112bc43bf26f1f139e7cd7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8540322407326484524, guid: 4a535e270b112bc43bf26f1f139e7cd7,
         type: 3}

@@ -30,6 +30,11 @@ public class PlayerSelection : MonoBehaviour
     {
         CurrentSelection();
 
+        for (int i = 0; i < players.Count; ++i)
+        {
+            if (players[i] == null) players.Remove(players[i]);
+        }
+
         foreach(GameObject player in players)
         {
             PlayerAI playerAI = player.GetComponent<PlayerAI>();

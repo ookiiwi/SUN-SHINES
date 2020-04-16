@@ -87,7 +87,7 @@ public class PlayerAI : MonoBehaviour
             }
         }
         
-        else
+        else if (gameManager.currentPlayer != null)
         {
             //bottom 1
             Debug.DrawLine(transform.position + new Vector3(-boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y * 2), transform.position + new Vector3(-boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y * 2) + dist, Color.green);

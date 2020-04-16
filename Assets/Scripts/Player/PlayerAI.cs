@@ -130,17 +130,21 @@ public class PlayerAI : MonoBehaviour
             }
         }
 
-        if (hit2.collider != null && hit2.collider.gameObject == gameManager.currentPlayer || hit3.collider != null && hit3.collider.gameObject == gameManager.currentPlayer)
+        if (hit2.collider != null && !hit2.collider.IsTouchingLayers(10))
         {
-            follow = false;
-        }
+            if (hit2.collider != null && hit2.collider.gameObject == gameManager.currentPlayer || hit3.collider != null && hit3.collider.gameObject == gameManager.currentPlayer)
+            {
+                follow = false;
+            }
 
-        else if (hit4.collider != null && hit4.collider.gameObject == gameManager.currentPlayer || hit5.collider != null && hit5.collider.gameObject == gameManager.currentPlayer
-                    || hit6.collider != null && hit6.collider.gameObject == gameManager.currentPlayer)
-        {
-            follow = false;
+            else if (hit4.collider != null && hit4.collider.gameObject == gameManager.currentPlayer || hit5.collider != null && hit5.collider.gameObject == gameManager.currentPlayer
+                        || hit6.collider != null && hit6.collider.gameObject == gameManager.currentPlayer)
+            {
+                follow = false;
+            }
         }
-
-        Debug.Log("followlow = " + followlow);
+        
+        follow = false; 
+        followlow = false;   
     }
 }

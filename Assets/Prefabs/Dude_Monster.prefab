@@ -305,6 +305,7 @@ MonoBehaviour:
   useHearts: 1
   MaxHP: 400
   HP: 0
+  prevHP: 0
   hearts: 4
   emptyHearts: 0
   XP: 10

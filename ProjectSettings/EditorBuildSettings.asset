@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ForestBeginning.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Cave.unity
+    guid: e43818d052b87744f8de17cd74c3fe89
   m_configObjects: {}

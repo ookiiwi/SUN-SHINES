@@ -174,7 +174,8 @@ MonoBehaviour:
   useHearts: 1
   MaxHP: 400
   HP: 0
-  hearts: 3
+  prevHP: 0
+  hearts: 2
   emptyHearts: 0
   XP: 10
   level: 1

@@ -39,7 +39,7 @@ public class PlayerSelection : MonoBehaviour
         {
             PlayerAI playerAI = player.GetComponent<PlayerAI>();
 
-            if (player != players[playerSelected])
+            if (player != gameManager.currentPlayer)
             {
                 if (!playerAI.follow)
                 {

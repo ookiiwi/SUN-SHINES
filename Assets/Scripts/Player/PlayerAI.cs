@@ -15,10 +15,12 @@ public class PlayerAI : MonoBehaviour
     private RaycastHit2D hit4;
     private RaycastHit2D hit5;
     private RaycastHit2D hit6;
+    private RaycastHit2D voidCheck;
     public Vector3 dist;
     public Vector3 offset;
 
     public LayerMask layers;
+    public LayerMask ground;
 
     private BoxCollider2D boxCollider;
 
@@ -52,7 +54,25 @@ public class PlayerAI : MonoBehaviour
         //top 3
         hit6 = Physics2D.Linecast(transform.position + new Vector3(-boxCollider.bounds.extents.x, boxCollider.bounds.extents.y * 4), transform.position + new Vector3(-boxCollider.bounds.extents.x, boxCollider.bounds.extents.y * 4) + dist * 2, layers);
 
-        if ( (hit.collider != null || hit2.collider != null || hit3.collider != null || hit4.collider != null || hit5.collider != null || hit6.collider != null) && !followlow)
+        voidCheck = Physics2D.Linecast(transform.position + new Vector3(boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y) + dist, transform.position + new Vector3(boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y) + dist + new Vector3(0, -3), ground);
+
+
+        if (voidCheck.collider != null)
+        {
+            //void check
+            Debug.DrawLine(transform.position + new Vector3(boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y) + dist, transform.position + new Vector3(boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y) + dist + new Vector3(0, -3), Color.yellow);
+        } 
+        
+        else
+        {
+            //void check
+            Debug.DrawLine(transform.position + new Vector3(boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y) + dist, transform.position + new Vector3(boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y) + dist + new Vector3(0, -3), Color.green);
+            follow = false;
+        }
+
+
+        if ( (hit.collider != null || hit2.collider != null || hit3.collider != null || hit4.collider != null || hit5.collider != null 
+            || hit6.collider != null || voidCheck.collider == null) && !followlow)
         {
             //bottom 1
             Debug.DrawLine(transform.position + new Vector3(-boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y * 2), transform.position + new Vector3(-boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y * 2) + dist, Color.yellow);
@@ -71,17 +91,15 @@ public class PlayerAI : MonoBehaviour
             
             //top 3
             Debug.DrawLine(transform.position + new Vector3(-boxCollider.bounds.extents.x, boxCollider.bounds.extents.y * 4), transform.position + new Vector3(-boxCollider.bounds.extents.x, boxCollider.bounds.extents.y * 4) + dist * 2, Color.yellow);
-            if (hit6.collider != null) Debug.Log("top 3:" + hit6.collider.gameObject.name);
+            
+            
+            
 
             animator.SetBool("IsRunning", false);
 
-            if ( hit2.collider != null && hit2.collider.gameObject != gameManager.currentPlayer || hit3.collider != null && hit3.collider.gameObject != gameManager.currentPlayer)
-            {
-                follow = true;
-            }
-
-            else if (hit4.collider != null && hit4.collider.gameObject != gameManager.currentPlayer || hit5.collider != null && hit5.collider.gameObject != gameManager.currentPlayer 
-                    || hit6.collider != null && hit6.collider.gameObject != gameManager.currentPlayer)
+            if ( (hit2.collider != null && hit2.collider.gameObject != gameManager.currentPlayer) || (hit3.collider != null && hit3.collider.gameObject != gameManager.currentPlayer) 
+                || (hit4.collider != null && hit4.collider.gameObject != gameManager.currentPlayer) || (hit5.collider != null && hit5.collider.gameObject != gameManager.currentPlayer) 
+                || (hit6.collider != null && hit6.collider.gameObject != gameManager.currentPlayer))
             {
                 follow = true;
             }
@@ -108,6 +126,7 @@ public class PlayerAI : MonoBehaviour
             //top 3
             Debug.DrawLine(transform.position + new Vector3(-boxCollider.bounds.extents.x, boxCollider.bounds.extents.y * 4), transform.position + new Vector3(-boxCollider.bounds.extents.x, boxCollider.bounds.extents.y * 4) + dist * 2, Color.green);
 
+            Debug.DrawLine(transform.position + new Vector3(boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y) + dist * 2, transform.position + new Vector3(boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y) + dist * 2 + new Vector3(0, -3), Color.green);
 
             //go right
             if (transform.position.x + boxCollider.bounds.extents.x < gameManager.currentPlayer.transform.position.x)
@@ -127,20 +146,6 @@ public class PlayerAI : MonoBehaviour
 
                 dist.x = Mathf.Abs(dist.x) * -1;
                 offset.x = Mathf.Abs(offset.x) * -1;
-            }
-        }
-
-        if (hit2.collider != null && !hit2.collider.IsTouchingLayers(10))
-        {
-            if (hit2.collider != null && hit2.collider.gameObject == gameManager.currentPlayer || hit3.collider != null && hit3.collider.gameObject == gameManager.currentPlayer)
-            {
-                follow = false;
-            }
-
-            else if (hit4.collider != null && hit4.collider.gameObject == gameManager.currentPlayer || hit5.collider != null && hit5.collider.gameObject == gameManager.currentPlayer
-                        || hit6.collider != null && hit6.collider.gameObject == gameManager.currentPlayer)
-            {
-                follow = false;
             }
         }
         

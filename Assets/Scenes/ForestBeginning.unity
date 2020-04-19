@@ -733,7 +733,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 5f58ebd5dfc7a6140a26cb688aac17ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -30111,7 +30111,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 5f58ebd5dfc7a6140a26cb688aac17ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -30924,7 +30924,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: 5f58ebd5dfc7a6140a26cb688aac17ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -33287,7 +33287,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1737896918
 Transform:
   m_ObjectHideFlags: 0
@@ -51134,6 +51134,22 @@ PrefabInstance:
       propertyPath: follow
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2101048284, guid: 587b5314fb5e129489c976b51ec9b5cd, type: 3}
+      propertyPath: dist.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101048284, guid: 587b5314fb5e129489c976b51ec9b5cd, type: 3}
+      propertyPath: layers.m_Bits
+      value: 1536
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101048284, guid: 587b5314fb5e129489c976b51ec9b5cd, type: 3}
+      propertyPath: obstacleLayers.m_Bits
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101048284, guid: 587b5314fb5e129489c976b51ec9b5cd, type: 3}
+      propertyPath: distGround.y
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1908177359848714331, guid: 587b5314fb5e129489c976b51ec9b5cd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -51193,6 +51209,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Owlet_Monster
+      objectReference: {fileID: 0}
+    - target: {fileID: 7144945392716778626, guid: 587b5314fb5e129489c976b51ec9b5cd,
+        type: 3}
+      propertyPath: JUMP_VELOCITY
+      value: 5.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 587b5314fb5e129489c976b51ec9b5cd, type: 3}
@@ -51280,6 +51301,18 @@ PrefabInstance:
       propertyPath: follow
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 172075172, guid: 7b18654626920274fb7ea9a0bd03a89a, type: 3}
+      propertyPath: dist.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 172075172, guid: 7b18654626920274fb7ea9a0bd03a89a, type: 3}
+      propertyPath: obstacleLayers.m_Bits
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 172075172, guid: 7b18654626920274fb7ea9a0bd03a89a, type: 3}
+      propertyPath: distGround.y
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2033551777986656210, guid: 7b18654626920274fb7ea9a0bd03a89a,
         type: 3}
       propertyPath: m_Name
@@ -51340,6 +51373,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7306074829202459407, guid: 7b18654626920274fb7ea9a0bd03a89a,
+        type: 3}
+      propertyPath: JUMP_VELOCITY
+      value: 5.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b18654626920274fb7ea9a0bd03a89a, type: 3}
 --- !u!4 &2079282069845045029 stripped
@@ -51368,6 +51406,23 @@ PrefabInstance:
     - target: {fileID: 1730641445, guid: 4a535e270b112bc43bf26f1f139e7cd7, type: 3}
       propertyPath: follow
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730641445, guid: 4a535e270b112bc43bf26f1f139e7cd7, type: 3}
+      propertyPath: dist.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730641445, guid: 4a535e270b112bc43bf26f1f139e7cd7, type: 3}
+      propertyPath: obstacleLayers.m_Bits
+      value: 1280
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730641445, guid: 4a535e270b112bc43bf26f1f139e7cd7, type: 3}
+      propertyPath: distGround.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1142108028171597045, guid: 4a535e270b112bc43bf26f1f139e7cd7,
+        type: 3}
+      propertyPath: JUMP_VELOCITY
+      value: 5.25
       objectReference: {fileID: 0}
     - target: {fileID: 8540322407326484520, guid: 4a535e270b112bc43bf26f1f139e7cd7,
         type: 3}

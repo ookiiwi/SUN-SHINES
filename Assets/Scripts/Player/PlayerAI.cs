@@ -16,10 +16,13 @@ public class PlayerAI : MonoBehaviour
     private RaycastHit2D hit5;
     private RaycastHit2D hit6;
     private RaycastHit2D voidCheck;
+    private RaycastHit2D obstacleCheck;
     public Vector3 dist;
+    public Vector3 distGround;
     public Vector3 offset;
 
     public LayerMask layers;
+    public LayerMask obstacleLayers;
     public LayerMask ground;
 
     private BoxCollider2D boxCollider;
@@ -54,21 +57,36 @@ public class PlayerAI : MonoBehaviour
         //top 3
         hit6 = Physics2D.Linecast(transform.position + new Vector3(-boxCollider.bounds.extents.x, boxCollider.bounds.extents.y * 4), transform.position + new Vector3(-boxCollider.bounds.extents.x, boxCollider.bounds.extents.y * 4) + dist * 2, layers);
 
-        voidCheck = Physics2D.Linecast(transform.position + new Vector3(boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y) + dist, transform.position + new Vector3(boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y) + dist + new Vector3(0, -3), ground);
+        voidCheck = Physics2D.Linecast(transform.position + new Vector3(boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y) + dist, transform.position + new Vector3(boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y) + dist - distGround, ground);
 
+        obstacleCheck = Physics2D.Linecast(transform.position + offset, transform.position + offset + dist, obstacleLayers);
 
         if (voidCheck.collider != null)
         {
             //void check
-            Debug.DrawLine(transform.position + new Vector3(boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y) + dist, transform.position + new Vector3(boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y) + dist + new Vector3(0, -3), Color.yellow);
+            Debug.DrawLine(transform.position + new Vector3(boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y) + dist, transform.position + new Vector3(boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y) + dist - distGround, Color.yellow);
         } 
         
         else
         {
             //void check
-            Debug.DrawLine(transform.position + new Vector3(boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y) + dist, transform.position + new Vector3(boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y) + dist + new Vector3(0, -3), Color.green);
+            Debug.DrawLine(transform.position + new Vector3(boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y) + dist, transform.position + new Vector3(boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y) + dist - distGround, Color.green);
             follow = false;
         }
+
+        //check if an ai is touching obstacle or the player 
+        if ( (obstacleCheck.collider != null) || (hit2.collider != null && hit2.collider.gameObject == gameManager.currentPlayer) || (hit3.collider != null && hit3.collider.gameObject == gameManager.currentPlayer) 
+                || (hit4.collider != null && hit4.collider.gameObject == gameManager.currentPlayer) || (hit5.collider != null && hit5.collider.gameObject == gameManager.currentPlayer) 
+                || (hit6.collider != null && hit6.collider.gameObject == gameManager.currentPlayer) || voidCheck.collider == null)
+        {
+            follow = false;
+        }
+
+        else
+        {
+            follow = true; 
+        }
+
 
 
         if ( (hit.collider != null || hit2.collider != null || hit3.collider != null || hit4.collider != null || hit5.collider != null 
@@ -97,12 +115,7 @@ public class PlayerAI : MonoBehaviour
 
             animator.SetBool("IsRunning", false);
 
-            if ( (hit2.collider != null && hit2.collider.gameObject != gameManager.currentPlayer) || (hit3.collider != null && hit3.collider.gameObject != gameManager.currentPlayer) 
-                || (hit4.collider != null && hit4.collider.gameObject != gameManager.currentPlayer) || (hit5.collider != null && hit5.collider.gameObject != gameManager.currentPlayer) 
-                || (hit6.collider != null && hit6.collider.gameObject != gameManager.currentPlayer))
-            {
-                follow = true;
-            }
+            
         }
         
         else if (gameManager.currentPlayer != null)
@@ -125,9 +138,6 @@ public class PlayerAI : MonoBehaviour
         
             //top 3
             Debug.DrawLine(transform.position + new Vector3(-boxCollider.bounds.extents.x, boxCollider.bounds.extents.y * 4), transform.position + new Vector3(-boxCollider.bounds.extents.x, boxCollider.bounds.extents.y * 4) + dist * 2, Color.green);
-
-            Debug.DrawLine(transform.position + new Vector3(boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y) + dist * 2, transform.position + new Vector3(boxCollider.bounds.extents.x, -boxCollider.bounds.extents.y) + dist * 2 + new Vector3(0, -3), Color.green);
-
             //go right
             if (transform.position.x + boxCollider.bounds.extents.x < gameManager.currentPlayer.transform.position.x)
             {
@@ -149,7 +159,6 @@ public class PlayerAI : MonoBehaviour
             }
         }
         
-        follow = false; 
-        followlow = false;   
+           
     }
 }

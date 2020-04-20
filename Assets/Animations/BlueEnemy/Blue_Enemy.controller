@@ -549,8 +549,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 681f8757b661ca84e83d59eecf56cd5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireBall: {fileID: 5511478762908676452, guid: 9460fd3c67365bc4189a5932d26e7f71,
+  fireBall: {fileID: 4180461898132031998, guid: 4b9f7f03ac216104cacb1898d6ee564a,
     type: 3}
+  fireBallS_Obj: {fileID: 11400000, guid: 7d1b4b39839305a449677568640ed41d, type: 2}
   fireBallInst: {fileID: 0}
   initDelayBetweenAttack: 2
 --- !u!114 &8222695512983314744

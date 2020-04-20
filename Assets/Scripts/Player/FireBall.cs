@@ -7,6 +7,9 @@ public class FireBall : MonoBehaviour
     public float moveSpeed;
     private Rigidbody2D rb;
 
+    public string m_name;
+    public int m_DP;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();

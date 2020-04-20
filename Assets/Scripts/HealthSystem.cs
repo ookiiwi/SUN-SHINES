@@ -36,8 +36,8 @@ public class HealthSystem : MonoBehaviour
     {  
         if (collision.gameObject.CompareTag("Weapon"))
         {
-            WeaponData weaponData = collision.gameObject.GetComponent<WeaponData>();
-            characterData.HP -= weaponData.DP;
+            FireBall weaponData = collision.gameObject.GetComponent<FireBall>();
+            characterData.HP -= weaponData.m_DP;
 
             animator.SetTrigger("IsHurt");
         }

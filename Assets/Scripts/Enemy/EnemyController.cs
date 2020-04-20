@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
@@ -9,7 +7,7 @@ public class EnemyController : MonoBehaviour
 
     public void Move(float dir)
     {
-        rb.velocity = new Vector2(dir, rb.transform.position.y);
+        rb.velocity = new Vector2(dir, rb.velocity.y);
 
         if (dir < 0 && facingRight)
         {

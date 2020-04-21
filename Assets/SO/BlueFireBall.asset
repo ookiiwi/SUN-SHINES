@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20948447d2a7d5a4c8f76665de1bc224, type: 3}
   m_Name: BlueFireBall
   m_EditorClassIdentifier: 
-  m_animatorController: {fileID: 0}
-  m_name: 
+  m_animatorController: {fileID: 9100000, guid: 79175ce5240bc8540b32cb850763853a,
+    type: 2}
+  m_name: BlueFireBall
   m_lifeTime: 0
-  m_DP: 0
+  m_DP: 40

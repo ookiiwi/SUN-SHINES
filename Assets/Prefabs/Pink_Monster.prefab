@@ -179,6 +179,7 @@ MonoBehaviour:
   emptyHearts: 0
   XP: 10
   level: 1
+  fireBallUsed: {fileID: 11400000, guid: 65104aa47365284408bd6d8578c040ac, type: 2}
 --- !u!114 &1710847640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MOVE_SPEED: 4
-  JUMP_VELOCITY: 5
+  JUMP_VELOCITY: 5.25
   GroundLayerMask:
     serializedVersion: 2
     m_Bits: 768
@@ -239,11 +240,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 7306074829202459407}
   animator: {fileID: 2033551777986656212}
-  dist: {x: 1, y: 0, z: 0}
+  dist: {x: 2, y: 0, z: 0}
+  distGround: {x: 0, y: 4, z: 0}
   offset: {x: 0.3, y: 0, z: 0}
   layers:
     serializedVersion: 2
     m_Bits: 1536
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 1280
+  ground:
+    serializedVersion: 2
+    m_Bits: 256
   follow: 0
   followlow: 0
 --- !u!1 &4895824986896479628

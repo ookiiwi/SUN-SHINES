@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20948447d2a7d5a4c8f76665de1bc224, type: 3}
   m_Name: GreenFireBall
   m_EditorClassIdentifier: 
-  m_animatorController: {fileID: 0}
-  m_name: 
+  m_animatorController: {fileID: 9100000, guid: 8b3c01d751073244589f2892258373fa,
+    type: 2}
+  m_name: GreenFireBall
   m_lifeTime: 0
-  m_DP: 0
+  m_DP: 60

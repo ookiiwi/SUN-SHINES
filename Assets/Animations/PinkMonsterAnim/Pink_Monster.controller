@@ -511,7 +511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireBall: {fileID: 4180461898132031998, guid: 4b9f7f03ac216104cacb1898d6ee564a,
     type: 3}
-  fireBallS_Obj: {fileID: 11400000, guid: 7d1b4b39839305a449677568640ed41d, type: 2}
+  fireBallS_Obj: {fileID: 11400000, guid: af9e71d79891f0f4f827d0c16c3f6dfb, type: 2}
 --- !u!1101 &3763782309485621171
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

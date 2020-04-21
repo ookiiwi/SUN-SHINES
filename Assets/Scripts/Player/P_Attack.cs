@@ -9,11 +9,12 @@ public class P_Attack : StateMachineBehaviour
     private GameObject fireBallInst;
     private FireBall fireBallScript;
     private Animator fireBallAnim;
-    public FireBallS_Obj fireBallS_Obj;
+    private FireBallS_Obj fireBallS_Obj;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
         fireBallAnim = fireBall.GetComponent<Animator>();
+        fireBallS_Obj = animator.GetComponent<CharacterData>().fireBallUsed;
 
         firePoint = animator.gameObject.transform.Find("FirePoint");
         fireBallAnim.runtimeAnimatorController = fireBallS_Obj.m_animatorController;

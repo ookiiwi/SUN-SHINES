@@ -13,6 +13,8 @@ public class CharacterData : MonoBehaviour
     public int XP;
     public int level;
 
+    public FireBallS_Obj fireBallUsed;
+
     public void Start()
     {
         HP = MaxHP;

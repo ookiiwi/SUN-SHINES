@@ -313,13 +313,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useHearts: 0
-  MaxHP: 100
+  MaxHP: 4
   HP: 0
   prevHP: 0
   hearts: 0
   emptyHearts: 0
   XP: 10
   level: 1
+  fireBallUsed: {fileID: 11400000, guid: 7d1b4b39839305a449677568640ed41d, type: 2}
 --- !u!114 &1792432472
 MonoBehaviour:
   m_ObjectHideFlags: 0

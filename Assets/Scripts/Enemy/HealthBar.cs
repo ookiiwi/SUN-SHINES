@@ -35,19 +35,9 @@ public class HealthBar : MonoBehaviour
         if (characterData.HP < prevHP)
         {
             prevHP = HP;
-            Vector3 barLevel = new Vector3((HP / 100), barSprite.localScale.y).normalized;
+            float normalizedHP = HP / characterData.MaxHP;
 
-            barSprite.localScale = new Vector3(barLevel.x, 1f);
-
-            if (HP < (100 / 3 * 2) && HP > (100 / 3))
-            {
-                barSprite.GetComponentInChildren<SpriteRenderer>().color = Color.white;
-            }
-
-            else if (HP < (100 / 3))
-            {
-                barSprite.GetComponentInChildren<SpriteRenderer>().color = Color.red;
-            }
+            barSprite.localScale = new Vector3(normalizedHP, 1f);
         }
     }
 }

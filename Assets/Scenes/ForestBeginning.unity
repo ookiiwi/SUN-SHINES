@@ -23533,11 +23533,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1737896918}
     m_Modifications:
-    - target: {fileID: 2911764999619487869, guid: 38768b6f6755eb641aea87890c2de1ba,
-        type: 3}
-      propertyPath: zoneSpaceBtw.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8766158692836087994, guid: 38768b6f6755eb641aea87890c2de1ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -34356,7 +34351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1737896918
 Transform:
   m_ObjectHideFlags: 0

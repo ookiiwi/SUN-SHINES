@@ -21,8 +21,6 @@ public class HeartManager : MonoBehaviour
         prevPlayer = null;
 
         currentHeart = hearts.Count - 1;
-        heartStates = heartSprites.Length - 1;
-        currentHeartState = heartStates;
 
         prevHP = playerData.MaxHP;
 
@@ -43,18 +41,16 @@ public class HeartManager : MonoBehaviour
     {
         if (playerData.HP < playerData.prevHP)
         {
-            hearts[currentHeart].GetComponent<SpriteRenderer>().sprite = heartSprites[--currentHeartState];
+            hearts[currentHeart].GetComponent<SpriteRenderer>().sprite = heartSprites[playerData.HP];
 
             playerData.prevHP = playerData.HP;
         }
 
-        if (currentHeartState < 1)
+        if (playerData.HP < 1)
         {
             playerData.HP = playerData.MaxHP;
             playerData.prevHP = playerData.HP;
             ++playerData.emptyHearts;
-
-            currentHeartState = heartStates;
             --currentHeart;
         }
     }
@@ -107,9 +103,8 @@ public class HeartManager : MonoBehaviour
                 }
 
                 //set the right sprite for the last non empty heart
-                currentHeartState = p_HP / 100;
                 currentHeart = p_hearts - p_emptyHearts - 1;
-                hearts[currentHeart].GetComponent<SpriteRenderer>().sprite = heartSprites[currentHeartState];
+                hearts[currentHeart].GetComponent<SpriteRenderer>().sprite = heartSprites[p_HP];
 
                 if (p_emptyHearts > 0)
                 {

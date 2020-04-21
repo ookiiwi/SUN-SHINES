@@ -8,6 +8,7 @@ public class PlayerManager : MonoBehaviour
     public Animator animator;
 
     private PlayerMovement playerMovement;
+    private GameManager gameManager;
 
     public float initDelayAttacks;
     private float delayAttacks;
@@ -15,6 +16,7 @@ public class PlayerManager : MonoBehaviour
     private void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         delayAttacks = 0;
     }
@@ -25,7 +27,7 @@ public class PlayerManager : MonoBehaviour
         {
             gameObject.GetComponent<PlayerAI>().enabled = false;
 
-            if (Input.GetKeyDown(KeyCode.A) && delayAttacks <= 0)
+            if (Input.GetKeyDown(KeyCode.A) && delayAttacks <= 0 && gameManager.isInputEnabled)
             {
                 animator.SetTrigger("Attack");
 

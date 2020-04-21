@@ -11,6 +11,29 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
     public Image bg;
 
     public ScriptableObject item;
+    public Image itemImage;
+
+    private void Awake()
+    {
+        if (isItem)
+        {
+            if (item is FireBallS_Obj)
+            {
+                FireBallS_Obj fb = item as FireBallS_Obj;
+                itemImage.sprite = fb.m_sprite;
+
+                itemImage.SetNativeSize();
+
+                Debug.Log("Set sprite");
+            }
+        }
+    }
+
+    private void Start()
+    {
+        bg = GetComponent<Image>();
+        tabManager.Subscribe(this);
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -20,6 +43,8 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
         {
             tabManager.OnTabSelected(item);
         }
+
+        Debug.Log("Clicked");
     }
 
     public void OnPointerEnter(PointerEventData eventData)

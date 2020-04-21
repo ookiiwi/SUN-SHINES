@@ -18,4 +18,4 @@ MonoBehaviour:
     type: 3}
   m_name: GreenFireBall
   m_lifeTime: 0
-  m_DP: 60
+  m_DP: 2

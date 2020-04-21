@@ -18,4 +18,4 @@ MonoBehaviour:
     type: 3}
   m_name: Basic Fire Ball
   m_lifeTime: 0
-  m_DP: 20
+  m_DP: 1

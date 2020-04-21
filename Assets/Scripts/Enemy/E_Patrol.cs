@@ -53,13 +53,15 @@ public class E_Patrol : StateMachineBehaviour
 
         if (checkForTarget.goOpposite)
         {
-            prevRight = !prevRight;
-
             if (!prevRight)
+            {
                 enemyController.Move(dir * moveSpeed);
+            }
 
             else if (prevRight)
+            {
                 enemyController.Move(-dir * moveSpeed);
+            }
 
             checkForTarget.goOpposite = false;
         }

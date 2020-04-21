@@ -87,6 +87,32 @@ public class E_CheckForTarget : MonoBehaviour
             return;
         }
 
+        //attack zone
+        if (attackZone.collider != null || attackZone2.collider != null || attackZone3.collider != null)
+        {
+            Debug.DrawLine(transform.position, transform.position + attackDist, Color.cyan);
+
+            Debug.DrawLine(transform.position + rayOffsetY, transform.position + rayOffsetY + attackDist, Color.cyan);
+
+            Debug.DrawLine(transform.position - rayOffsetY, transform.position - rayOffsetY + attackDist, Color.cyan);
+
+
+            animator.SetBool("IsAttacking", true);
+            return;
+        }
+
+        else
+        {
+            Debug.DrawLine(transform.position, transform.position + attackDist, Color.yellow);
+
+            Debug.DrawLine(transform.position + rayOffsetY, transform.position + rayOffsetY + attackDist, Color.yellow);
+
+            Debug.DrawLine(transform.position - rayOffsetY, transform.position - rayOffsetY + attackDist, Color.yellow);
+
+
+            animator.SetBool("IsAttacking", false);
+        }
+
         //chase zone
         if (chaseZone.collider != null || chaseZone2.collider != null || chaseZone3.collider != null)
         {
@@ -97,6 +123,8 @@ public class E_CheckForTarget : MonoBehaviour
             Debug.DrawLine(transform.position - rayOffsetY + attackDist, transform.position - rayOffsetY + chaseDist, Color.red);
 
             animator.SetBool("IsChasing", true);
+
+            return;
         }
 
         else
@@ -111,29 +139,6 @@ public class E_CheckForTarget : MonoBehaviour
         }
 
 
-        //attack zone
-        if (attackZone.collider  != null  || attackZone2.collider != null || attackZone3.collider != null)
-        {
-            Debug.DrawLine(transform.position, transform.position + attackDist, Color.cyan);
-
-            Debug.DrawLine(transform.position + rayOffsetY, transform.position + rayOffsetY + attackDist, Color.cyan);
-
-            Debug.DrawLine(transform.position - rayOffsetY, transform.position - rayOffsetY + attackDist, Color.cyan);
-
-
-            animator.SetBool("IsAttacking", true);
-        }
-
-        else
-        {
-            Debug.DrawLine(transform.position, transform.position + attackDist, Color.yellow);
-
-            Debug.DrawLine(transform.position + rayOffsetY, transform.position + rayOffsetY + attackDist, Color.yellow);
-
-            Debug.DrawLine(transform.position - rayOffsetY, transform.position - rayOffsetY + attackDist, Color.yellow);
-
-
-            animator.SetBool("IsAttacking", false);
-        }
+     
     }
 }

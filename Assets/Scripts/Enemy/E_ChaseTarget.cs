@@ -21,4 +21,9 @@ public class E_ChaseTarget : StateMachineBehaviour
 
         enemyController.Move(dir * moveSpeed);
     }
+
+    public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+    {
+        animator.SetBool("IsChasing", false);
+    }
 }

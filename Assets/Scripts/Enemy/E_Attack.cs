@@ -19,25 +19,38 @@ public class E_Attack : StateMachineBehaviour
         fireBallAnim.runtimeAnimatorController = fireBallS_Obj.m_animatorController;
 
         firePoint = animator.transform.Find("Fire Point");
-        delayAttack = 0;
+        delayAttack = initDelayBetweenAttack;
+
+        Attack();
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
     {
         if (delayAttack <= 0)
         {
-            fireBallInst = Instantiate(fireBall, firePoint.position, firePoint.rotation);
-            fireBallScript = fireBallInst.GetComponent<FireBall>();
-            fireBallScript.m_name = fireBallS_Obj.m_name;
-            fireBallScript.m_DP = fireBallS_Obj.m_DP;
-            delayAttack = initDelayBetweenAttack;
-
-            Debug.Log("Attack");
+            Attack();
         }
 
         else
         {
             delayAttack -= Time.deltaTime;
         }
+    }
+
+    private void Attack()
+    {
+        fireBallInst = Instantiate(fireBall, firePoint.position, firePoint.rotation);
+        fireBallScript = fireBallInst.GetComponent<FireBall>();
+        fireBallScript.m_name = fireBallS_Obj.m_name;
+        fireBallScript.m_DP = fireBallS_Obj.m_DP;
+        delayAttack = initDelayBetweenAttack;
+
+        Debug.Log("Attack");
+        Debug.Log("delay: " + delayAttack);
+    }
+
+    public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)
+    {
+        animator.SetBool("IsAttacking", false);
     }
 }

@@ -24,18 +24,17 @@ public class PlayerSelection : MonoBehaviour
         OnSelection(players[playerSelected].transform);
 
         gameManager.currentPlayer = players[playerSelected];
+
+        AjustIndex();
     }
 
     private void Update()
     {
+        AjustIndex();
+
         CurrentSelection();
 
-        for (int i = 0; i < players.Count; ++i)
-        {
-            if (players[i] == null) players.Remove(players[i]);
-        }
-
-        foreach(GameObject player in players)
+        foreach (GameObject player in players)
         {
             PlayerAI playerAI = player.GetComponent<PlayerAI>();
 
@@ -75,7 +74,7 @@ public class PlayerSelection : MonoBehaviour
     {
         if (players[playerSelected] == null)
         {
-            players.RemoveAt(playerSelected);
+            players.Remove(players[playerSelected]);
 
             if (playerSelected >= players.Count - 1)
                 --playerSelected;
@@ -83,8 +82,15 @@ public class PlayerSelection : MonoBehaviour
             else if (playerSelected <= 0)
                 ++playerSelected;
 
+            else if (players.Count - 1 == 0)
+            {
+                playerSelected = 0;
+            }
+
             else
                 --playerSelected;
+
+            Debug.Log("remove player");
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -127,5 +133,30 @@ public class PlayerSelection : MonoBehaviour
         VM.Follow = players[playerSelected].transform;
 
         gameManager.currentPlayer = players[playerSelected];
+    }
+
+    private void AjustIndex()
+    {
+        if (players.Count > 0)
+        {
+            for (int i = 0; i < players.Count - 1; ++i)
+            {
+                if (players[i].transform.position.x < players[i + 1].transform.position.x)
+                {
+                    GameObject tmp = players[i];
+                    players[i] = players[i + 1];
+                    players[i + 1] = tmp;
+
+                    if (players[i] == gameManager.currentPlayer) playerSelected = i;
+
+                    else if (players[i + 1] == gameManager.currentPlayer) playerSelected = i + 1;
+                }
+            }
+        }
+
+        for (int i = 0; i < players.Count; ++i)
+        {
+            Debug.Log(i + ": " + players[i]);
+        }
     }
 }

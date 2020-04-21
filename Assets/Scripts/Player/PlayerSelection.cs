@@ -30,8 +30,6 @@ public class PlayerSelection : MonoBehaviour
 
     private void Update()
     {
-        AjustIndex();
-
         CurrentSelection();
 
         foreach (GameObject player in players)
@@ -72,26 +70,7 @@ public class PlayerSelection : MonoBehaviour
 
     private void CurrentSelection()
     {
-        if (players[playerSelected] == null)
-        {
-            players.Remove(players[playerSelected]);
-
-            if (playerSelected >= players.Count - 1)
-                --playerSelected;
-
-            else if (playerSelected <= 0)
-                ++playerSelected;
-
-            else if (players.Count - 1 == 0)
-            {
-                playerSelected = 0;
-            }
-
-            else
-                --playerSelected;
-
-            Debug.Log("remove player");
-        }
+        AjustIndex();
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
@@ -137,6 +116,11 @@ public class PlayerSelection : MonoBehaviour
 
     private void AjustIndex()
     {
+        for (int i = 0; i < players.Count; ++i)
+        {
+            if (players[i] == null) players.Remove(players[i]);
+        }
+
         if (players.Count > 0)
         {
             for (int i = 0; i < players.Count - 1; ++i)
@@ -154,9 +138,6 @@ public class PlayerSelection : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < players.Count; ++i)
-        {
-            Debug.Log(i + ": " + players[i]);
-        }
+        players[playerSelected].GetComponent<PlayerManager>().isAI = false;
     }
 }

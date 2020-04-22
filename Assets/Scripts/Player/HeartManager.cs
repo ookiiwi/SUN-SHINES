@@ -8,23 +8,16 @@ public class HeartManager : MonoBehaviour
     public GameManager gameManager;
 
     private CharacterData playerData;
-    private GameObject prevPlayer;
 
     private int currentHeart;
-    private int heartStates;
-    private int currentHeartState;
-    private int prevHP;
 
     private void Start()
     {
         playerData = gameManager.currentPlayer.GetComponent<CharacterData>();
-        prevPlayer = null;
 
         currentHeart = hearts.Count - 1;
 
-        prevHP = playerData.MaxHP;
-
-        CheckNewSelected();
+        CheckSelection();
     }
 
     private void Update()
@@ -32,7 +25,7 @@ public class HeartManager : MonoBehaviour
         if (gameManager.currentPlayer != null)
             playerData = gameManager.currentPlayer.GetComponent<CharacterData>();
 
-        CheckNewSelected();
+        CheckSelection();
 
         Damage();
     }
@@ -65,14 +58,14 @@ public class HeartManager : MonoBehaviour
         hearts.Add(newHeart);
     }
 
-    private void CheckNewSelected()
+    private void CheckSelection()
     {
         int p_hearts = playerData.hearts;
         int p_emptyHearts = playerData.emptyHearts;
         int p_HP = playerData.HP;
 
 
-        if (prevPlayer != gameManager.currentPlayer && gameManager.currentPlayer != null)
+        if (gameManager.currentPlayer != null)
         {
             if (p_emptyHearts < p_hearts)
             {
@@ -114,10 +107,6 @@ public class HeartManager : MonoBehaviour
                     }
                 }
             }
-
-            
-
-            prevPlayer = gameManager.currentPlayer;
         }
     }
 }

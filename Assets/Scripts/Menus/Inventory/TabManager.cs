@@ -69,6 +69,11 @@ public class TabManager : MonoBehaviour
                 gameManager.currentPlayer.GetComponent<CharacterData>().fireBallUsed = item as FireBallS_Obj;
             }
 
+            else if (item is PotionSO)
+            {
+                gameManager.currentPlayer.GetComponent<CharacterData>().potionUsed = item as PotionSO;
+            }
+
             else
             {
                 Debug.Log("Wrong type");

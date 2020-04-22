@@ -14,6 +14,7 @@ public class CharacterData : MonoBehaviour
     public int level;
 
     public FireBallS_Obj fireBallUsed;
+    public PotionSO potionUsed;
 
     public void Start()
     {

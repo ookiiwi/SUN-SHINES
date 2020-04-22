@@ -27,6 +27,8 @@ public class HealthSystem : MonoBehaviour
 
             Debug.Log("Die");
         }
+
+        Heal();
     }
 
 
@@ -35,6 +37,7 @@ public class HealthSystem : MonoBehaviour
     {  
         if (collision.gameObject.CompareTag("Weapon"))
         {
+            //apply damage
             if (characterData.HP > 0)
             {
                 FireBall weaponData = collision.gameObject.GetComponent<FireBall>();
@@ -42,6 +45,60 @@ public class HealthSystem : MonoBehaviour
             }
 
             animator.SetTrigger("IsHurt");
+        }
+    }
+
+    private void Heal()
+    {
+        if (characterData.potionUsed != null)
+        {
+            switch (characterData.potionUsed.type)
+            {
+                case PotionSO.Type.Heal:
+                    {
+                        for(int i = 0; i < characterData.potionUsed.m_gain; ++i)
+                        {
+                            if (characterData.emptyHearts >= 0 && characterData.HP < characterData.MaxHP)
+                            {
+                                ++characterData.HP;
+
+                                Debug.Log("Add hp");
+                            }
+
+                            else if (characterData.HP > characterData.MaxHP && characterData.emptyHearts > 0)
+                            {
+                                if (characterData.emptyHearts > 0) --characterData.emptyHearts;
+
+                                characterData.HP = 1;
+
+                                Debug.Log("reset hp");
+                            }
+
+                            else
+                            {
+                                break;
+                            }
+                        }
+
+                        characterData.potionUsed = null;
+
+                        break;
+                    }
+
+                case PotionSO.Type.Power:
+                    {
+                        characterData.potionUsed = null;
+
+                        break;
+                    }
+
+                case PotionSO.Type.Speed:
+                    {
+                        characterData.potionUsed = null;
+
+                        break;
+                    }
+            }
         }
     }
 

@@ -24,7 +24,17 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
 
                 itemImage.SetNativeSize();
 
-                Debug.Log("Set sprite");
+                Debug.Log("Set fireball sprite");
+            }
+
+            else if (item is PotionSO)
+            {
+                PotionSO potion = item as PotionSO;
+                itemImage.sprite = potion.m_sprite;
+
+                itemImage.SetNativeSize();
+
+                Debug.Log("Set potion sprite");
             }
         }
     }

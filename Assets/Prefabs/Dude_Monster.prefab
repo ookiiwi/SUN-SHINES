@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 1142108028171597045}
   - component: {fileID: 4894992227807657911}
   - component: {fileID: 1730641445}
+  - component: {fileID: 1730641454}
   m_Layer: 9
   m_Name: Dude_Monster
   m_TagString: Player
@@ -303,14 +304,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useHearts: 1
-  MaxHP: 400
+  MaxHP: 4
   HP: 0
   prevHP: 0
   hearts: 4
   emptyHearts: 0
   XP: 10
   level: 1
-  fireBallUsed: {fileID: 11400000, guid: af9e71d79891f0f4f827d0c16c3f6dfb, type: 2}
+  fireBallUsed: {fileID: 11400000, guid: 65104aa47365284408bd6d8578c040ac, type: 2}
+  potionUsed: {fileID: 0}
 --- !u!114 &7691569176837245282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,3 +387,17 @@ MonoBehaviour:
     m_Bits: 256
   follow: 0
   followlow: 0
+--- !u!114 &1730641454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8540322407326484520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30dec8767faea7b4fbf94b6f6f630f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstFireBall: {fileID: 11400000, guid: 65104aa47365284408bd6d8578c040ac, type: 2}
+  firstPotion: {fileID: 11400000, guid: e2f5952cfb856764daa1f4b73a758bcd, type: 2}

@@ -16,6 +16,6 @@ MonoBehaviour:
     type: 2}
   m_sprite: {fileID: -8622283388504675842, guid: f313a6df79024204bb2c9b48b23ce3b5,
     type: 3}
-  m_name: BlueFireBall
+  m_name: Blue Fire Ball
   m_lifeTime: 0
   m_DP: 4

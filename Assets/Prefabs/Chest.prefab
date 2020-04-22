@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5171867375892963964}
   - component: {fileID: 5171867375892963955}
+  - component: {fileID: 3135930174228240193}
+  - component: {fileID: 5781330376007113378}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -81,3 +83,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3135930174228240193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5171867375892963954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7923206c48854d24ebe24452d98829da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 11400000, guid: 852df51850168624db0b1a7a9ba98962, type: 2}
+  - {fileID: 11400000, guid: e2f5952cfb856764daa1f4b73a758bcd, type: 2}
+  - {fileID: 11400000, guid: b8ef4d7e583b9f141a6931ed9c18d4a3, type: 2}
+  - {fileID: 11400000, guid: 5fc10a6c586a1c14da35fcccd9e9edfb, type: 2}
+  openedChest: {fileID: 8333231276030249781, guid: ea30b5fd11e674f4bb68b4e72d72d276,
+    type: 3}
+--- !u!61 &5781330376007113378
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5171867375892963954}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.021823883, y: 0.20238721}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.68, y: 0.67}
+    newSize: {x: 0.68, y: 0.67}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.6836319, y: 0.26522565}
+  m_EdgeRadius: 0

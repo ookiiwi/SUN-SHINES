@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 7144945392716778626}
   - component: {fileID: 3391463093266368448}
   - component: {fileID: 2101048284}
+  - component: {fileID: 2101048293}
   m_Layer: 9
   m_Name: Owlet_Monster
   m_TagString: Player
@@ -171,14 +172,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useHearts: 1
-  MaxHP: 400
+  MaxHP: 4
   HP: 0
   prevHP: 0
-  hearts: 5
+  hearts: 2
   emptyHearts: 0
   XP: 10
   level: 1
-  fireBallUsed: {fileID: 11400000, guid: 8a3cb02374298e74eabf9ce82d4107ed, type: 2}
+  fireBallUsed: {fileID: 11400000, guid: 65104aa47365284408bd6d8578c040ac, type: 2}
+  potionUsed: {fileID: 0}
 --- !u!114 &451368918678958357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,6 +255,20 @@ MonoBehaviour:
     m_Bits: 256
   follow: 0
   followlow: 0
+--- !u!114 &2101048293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908177359848714335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30dec8767faea7b4fbf94b6f6f630f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstFireBall: {fileID: 11400000, guid: 65104aa47365284408bd6d8578c040ac, type: 2}
+  firstPotion: {fileID: 11400000, guid: e2f5952cfb856764daa1f4b73a758bcd, type: 2}
 --- !u!1 &4086230377606883766
 GameObject:
   m_ObjectHideFlags: 0

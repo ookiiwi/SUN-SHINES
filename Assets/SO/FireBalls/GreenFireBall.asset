@@ -16,6 +16,6 @@ MonoBehaviour:
     type: 2}
   m_sprite: {fileID: -4070014318422356730, guid: 0cc706086a8ac9f448454cfa0b376c88,
     type: 3}
-  m_name: GreenFireBall
+  m_name: Green Fire Ball
   m_lifeTime: 0
   m_DP: 2

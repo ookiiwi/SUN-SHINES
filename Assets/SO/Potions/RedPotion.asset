@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   m_sprite: {fileID: 21300000, guid: 39345d850b107e147ba7c6670a28c041, type: 3}
+  m_name: ' Red Potion'
   m_gain: 0
   m_actionTime: 0

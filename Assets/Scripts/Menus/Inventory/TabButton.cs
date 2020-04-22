@@ -12,33 +12,61 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
 
     public ScriptableObject item;
     public Image itemImage;
+    public Sprite padlock;
 
-    private void Awake()
-    {
-        if (isItem)
-        {
-            if (item is FireBallS_Obj)
-            {
-                FireBallS_Obj fb = item as FireBallS_Obj;
-                itemImage.sprite = fb.m_sprite;
-
-                itemImage.SetNativeSize();
-            }
-
-            else if (item is PotionSO)
-            {
-                PotionSO potion = item as PotionSO;
-                itemImage.sprite = potion.m_sprite;
-
-                itemImage.SetNativeSize();
-            }
-        }
-    }
+    private GameManager gameManager;
+    private Inventory inventory;
 
     private void Start()
     {
         bg = GetComponent<Image>();
         tabManager.Subscribe(this);
+    }
+
+    private void Update()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        inventory = gameManager.currentPlayer.GetComponent<Inventory>();
+
+        if (isItem)
+        {
+
+            if (item is FireBallS_Obj)
+            {
+                if (inventory.HaveItem((item as FireBallS_Obj).m_name))
+                {
+                    FireBallS_Obj fb = item as FireBallS_Obj;
+                    itemImage.sprite = fb.m_sprite;
+
+                    itemImage.SetNativeSize();
+                }
+
+                else
+                {
+                    itemImage.sprite = padlock;
+
+                    itemImage.SetNativeSize();
+                }
+            }
+
+            else if (item is PotionSO)
+            {
+                if (inventory.HaveItem((item as PotionSO).m_name))
+                {
+                    PotionSO potion = item as PotionSO;
+                    itemImage.sprite = potion.m_sprite;
+
+                    itemImage.SetNativeSize();
+                }
+
+                else
+                {
+                    itemImage.sprite = padlock;
+
+                    itemImage.SetNativeSize();
+                }
+            }
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -47,7 +75,7 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
 
         if (isItem)
         {
-            tabManager.OnTabSelected(item);
+            tabManager.OnTabSelected(item, inventory);
         }
     }
 

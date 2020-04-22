@@ -60,18 +60,24 @@ public class TabManager : MonoBehaviour
         }
     }
 
-    public void OnTabSelected(ScriptableObject item)
+    public void OnTabSelected(ScriptableObject item, Inventory inventory)
     {
         if (item != null)
         {
             if (item is FireBallS_Obj)
             {
-                gameManager.currentPlayer.GetComponent<CharacterData>().fireBallUsed = item as FireBallS_Obj;
+                if (inventory.HaveItem((item as FireBallS_Obj).m_name))
+                {
+                    gameManager.currentPlayer.GetComponent<CharacterData>().fireBallUsed = item as FireBallS_Obj;
+                }
             }
 
             else if (item is PotionSO)
             {
-                gameManager.currentPlayer.GetComponent<CharacterData>().potionUsed = item as PotionSO;
+                if (inventory.HaveItem((item as PotionSO).m_name))
+                {
+                    gameManager.currentPlayer.GetComponent<CharacterData>().potionUsed = item as PotionSO;
+                }
             }
 
             else

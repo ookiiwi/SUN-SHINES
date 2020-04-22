@@ -78,8 +78,6 @@ public class E_CheckForTarget : MonoBehaviour
         {
             Debug.DrawLine(transform.position + friendRayOffset, transform.position + attackDist, Color.blue);
 
-            Debug.Log("Friend");
-
             goOpposite = true;
 
             animator.SetBool("IsPatrolling", true);

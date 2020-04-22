@@ -39,10 +39,7 @@ public class CarryFriend : MonoBehaviour
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
         
         
-            prevPlayer = gameManager.currentPlayer;
-
-            if (gameObject.transform.parent.gameObject.name == "Owlet_Monster")
-                Debug.Log("Changed player: " + prevPlayer.name);
+            prevPlayer = gameManager.currentPlayer;;
         }
 
         //apply friction changement
@@ -57,13 +54,7 @@ public class CarryFriend : MonoBehaviour
 
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
             gameObject.GetComponent<BoxCollider2D>().enabled = true;
-
-            if (gameObject.transform.parent.gameObject.name == "Owlet_Monster")
-                Debug.Log("Apply new friction for: " + gameObject.transform.parent.gameObject.name);
         }
-
-        if (gameObject.transform.parent.gameObject.name == "Owlet_Monster")
-            Debug.Log("players on head: " + cntPOnHead);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

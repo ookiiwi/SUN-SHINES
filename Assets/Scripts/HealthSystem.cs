@@ -24,8 +24,6 @@ public class HealthSystem : MonoBehaviour
         else if (characterData.HP <= 0)
         {
             StartCoroutine(Die());
-
-            Debug.Log("Die");
         }
 
         Heal();
@@ -61,8 +59,6 @@ public class HealthSystem : MonoBehaviour
                             if (characterData.emptyHearts >= 0 && characterData.HP < characterData.MaxHP)
                             {
                                 ++characterData.HP;
-
-                                Debug.Log("Add hp");
                             }
 
                             else if (characterData.HP > characterData.MaxHP && characterData.emptyHearts > 0)
@@ -70,8 +66,6 @@ public class HealthSystem : MonoBehaviour
                                 if (characterData.emptyHearts > 0) --characterData.emptyHearts;
 
                                 characterData.HP = 1;
-
-                                Debug.Log("reset hp");
                             }
 
                             else

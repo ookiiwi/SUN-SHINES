@@ -23,8 +23,6 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
                 itemImage.sprite = fb.m_sprite;
 
                 itemImage.SetNativeSize();
-
-                Debug.Log("Set fireball sprite");
             }
 
             else if (item is PotionSO)
@@ -33,8 +31,6 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
                 itemImage.sprite = potion.m_sprite;
 
                 itemImage.SetNativeSize();
-
-                Debug.Log("Set potion sprite");
             }
         }
     }
@@ -53,8 +49,6 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
         {
             tabManager.OnTabSelected(item);
         }
-
-        Debug.Log("Clicked");
     }
 
     public void OnPointerEnter(PointerEventData eventData)

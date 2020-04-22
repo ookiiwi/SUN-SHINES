@@ -125,7 +125,6 @@ public class PlayerAI : MonoBehaviour
             
             //middle
             Debug.DrawLine(transform.position + offset, transform.position + offset + dist, Color.green);
-            //Debug.DrawLine(transform.position + offset + dist, transform.position + offset + dist + dist / 2, Color.red);
             
             //top forward
             Debug.DrawLine(transform.position + new Vector3(offset.x, boxCollider.bounds.extents.y), transform.position + new Vector3(offset.x, boxCollider.bounds.extents.y) + dist, Color.green);

@@ -44,9 +44,6 @@ public class E_Attack : StateMachineBehaviour
         fireBallScript.m_name = fireBallS_Obj.m_name;
         fireBallScript.m_DP = fireBallS_Obj.m_DP;
         delayAttack = initDelayBetweenAttack;
-
-        Debug.Log("Attack");
-        Debug.Log("delay: " + delayAttack);
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo animatorStateInfo, int layerIndex)

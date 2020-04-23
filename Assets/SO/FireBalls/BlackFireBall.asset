@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_animatorController: {fileID: 9100000, guid: 9c59cc38b0e7b9540b1d348dd649704a,
     type: 2}
-  m_sprite: {fileID: 2409798844838815082, guid: 84605a0ea14138749a7f7117212f9928,
-    type: 3}
+  m_sprite: {fileID: 21300000, guid: f9d96fc4df389b8449ca291d4f27a41b, type: 3}
   m_name: Black Fire Ball
   m_lifeTime: 0
   m_DP: 1

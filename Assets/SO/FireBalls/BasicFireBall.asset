@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_animatorController: {fileID: 9100000, guid: 23e035d99174f7a4bba0490984be89b3,
     type: 2}
-  m_sprite: {fileID: 3025866356083200111, guid: db5e40f34330f9246ad8c903ddbd6e76,
-    type: 3}
+  m_sprite: {fileID: 21300000, guid: 3a2767a3235905e4b93a0b285d27a8c1, type: 3}
   m_name: Basic Fire Ball
   m_lifeTime: 0
   m_DP: 1

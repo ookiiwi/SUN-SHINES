@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_animatorController: {fileID: 9100000, guid: 79175ce5240bc8540b32cb850763853a,
     type: 2}
-  m_sprite: {fileID: -8622283388504675842, guid: f313a6df79024204bb2c9b48b23ce3b5,
-    type: 3}
+  m_sprite: {fileID: 21300000, guid: dcde17ce20ad21e47942d6bb5bf7f27b, type: 3}
   m_name: Blue Fire Ball
   m_lifeTime: 0
   m_DP: 4

@@ -12,6 +12,8 @@ public class TabManager : MonoBehaviour
     public TabButton selectedTab;
     public List<GameObject> pages;
 
+    private bool keepSelection = true;
+
     public  void Subscribe(TabButton button)
     {
         if (tabButtons == null)
@@ -60,8 +62,10 @@ public class TabManager : MonoBehaviour
         }
     }
 
-    public void OnTabSelected(ScriptableObject item, Inventory inventory)
+    public void OnTabSelected(TabButton button, ScriptableObject item, Inventory inventory)
     {
+        OnTabSelected(button);
+
         if (item != null)
         {
             if (item is FireBallS_Obj)
@@ -74,9 +78,15 @@ public class TabManager : MonoBehaviour
 
             else if (item is PotionSO)
             {
-                if (inventory.HaveItem((item as PotionSO).m_name))
+                PotionSO potion = item as PotionSO;
+
+                if (inventory.HaveItem(potion.m_name) && inventory.ItemQuantity(potion.m_name) > 0)
                 {
                     gameManager.currentPlayer.GetComponent<CharacterData>().potionUsed = item as PotionSO;
+
+                    inventory.AddItem(potion.m_name, inventory.ItemQuantity(potion.m_name) - 1);
+
+                    selectedTab = null;
                 }
             }
 
@@ -94,6 +104,7 @@ public class TabManager : MonoBehaviour
             if (selectedTab != null && selectedTab == button) continue;
 
             button.bg.sprite = tabIdle;
+
         }
     }
 }

@@ -9,4 +9,5 @@ public class FireBallS_Obj : ScriptableObject
     public string m_name;
     public float m_lifeTime;
     public int m_DP;
+    public TextAsset m_description;
 }

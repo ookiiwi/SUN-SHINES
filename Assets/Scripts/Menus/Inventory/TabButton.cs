@@ -60,7 +60,12 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (unlocked)
+        if (isItem && unlocked)
+        {
+            tabManager.OnTabEnter(this, item, inventory);
+        }
+
+        else if (unlocked)
         {
             tabManager.OnTabEnter(this);
         }

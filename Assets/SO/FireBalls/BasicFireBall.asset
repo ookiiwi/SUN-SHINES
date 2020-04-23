@@ -18,3 +18,4 @@ MonoBehaviour:
   m_name: Basic Fire Ball
   m_lifeTime: 0
   m_DP: 1
+  m_description: {fileID: 4900000, guid: 88b4a395a1587fd4190ec9ca24a5cd1b, type: 3}

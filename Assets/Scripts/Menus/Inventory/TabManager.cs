@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class TabManager : MonoBehaviour
 {
@@ -11,8 +13,7 @@ public class TabManager : MonoBehaviour
     public Sprite tabActive;
     public TabButton selectedTab;
     public List<GameObject> pages;
-
-    private bool keepSelection = true;
+    public GameObject descriptionPage;
 
     public  void Subscribe(TabButton button)
     {
@@ -31,6 +32,16 @@ public class TabManager : MonoBehaviour
         if (selectedTab == null || button != selectedTab)
         {
             button.bg.sprite = tabHover;
+        }
+    }
+
+    public void OnTabEnter(TabButton button, ScriptableObject item, Inventory inventory)
+    {
+        OnTabEnter(button);
+
+        if (item != null)
+        {
+            ShowDescription(button, item, inventory);
         }
     }
 
@@ -105,6 +116,44 @@ public class TabManager : MonoBehaviour
 
             button.bg.sprite = tabIdle;
 
+            if (button.item != null)
+            {
+                descriptionPage.SetActive(false);
+            }
+
+        }
+    }
+
+    private void ShowDescription(TabButton button, ScriptableObject item, Inventory inventory)
+    {
+        if (item is FireBallS_Obj)
+        {
+            FireBallS_Obj fb = item as FireBallS_Obj;
+
+            if (inventory.HaveItem(fb.m_name) && fb.m_description != null)
+            {
+                TextMeshProUGUI descriptionText = descriptionPage.GetComponentInChildren<TextMeshProUGUI>();
+                descriptionText.SetText(fb.m_description.text + "\nDamages: " + fb.m_DP + "\nLife time: " + fb.m_lifeTime);
+
+                float textPosX = descriptionPage.transform.position.x;
+                float textPosY = descriptionPage.transform.position.y + descriptionPage.GetComponent<RectTransform>().sizeDelta.y / 2;
+                float panelPosX = button.transform.position.x + descriptionPage.GetComponent<RectTransform>().sizeDelta.x / 2 + button.GetComponent<RectTransform>().sizeDelta.x;
+                float panelPosY = button.transform.position.y - descriptionPage.GetComponent<RectTransform>().sizeDelta.y / 2;
+
+                descriptionText.transform.position = new Vector3(textPosX, textPosY);
+                descriptionPage.transform.position = new Vector3(panelPosX, panelPosY);
+                descriptionPage.SetActive(true);
+            }
+        }
+
+        else if (item is PotionSO)
+        {
+            PotionSO potion = item as PotionSO;
+
+            if (inventory.HaveItem(potion.m_name) && potion.m_description != null)
+            {
+                descriptionPage.GetComponentInChildren<TextMeshProUGUI>().SetText(potion.m_description.text);
+            }
         }
     }
 }

@@ -6,11 +6,9 @@ public class ChestContent : MonoBehaviour
 {
     public List<ScriptableObject> items;
     private GameObject item;
+    private GameObject itemInst;
     private GameManager gameManager;
-
-    public Sprite openedChest;
-
-    private SpriteRenderer spriteRenderer;
+    private Animator animator;
 
     private bool empty = false;
     private bool openChest = false;
@@ -18,9 +16,7 @@ public class ChestContent : MonoBehaviour
     private void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
-        
+        animator = GetComponent<Animator>(); 
     }
 
     private void Update()
@@ -44,7 +40,12 @@ public class ChestContent : MonoBehaviour
     private void OpenChest()
     {
         empty = true;
+        animator.enabled = true;
+        StartCoroutine(DoPop());
+    }
 
+    private IEnumerator DoPop()
+    {
         int randomItem = Random.Range(0, items.Count);
         Inventory playerInventory = gameManager.currentPlayer.GetComponent<Inventory>();
 
@@ -52,9 +53,6 @@ public class ChestContent : MonoBehaviour
         item = new GameObject();
         item.AddComponent<SpriteRenderer>();
         item.GetComponent<SpriteRenderer>().sortingOrder = 0;
-
-
-        spriteRenderer.sprite = openedChest;
 
         if (items[randomItem] is PotionSO)
         {
@@ -65,15 +63,16 @@ public class ChestContent : MonoBehaviour
             item.transform.localScale = new Vector3(0.3f, 0.3f, 0);
         }
 
-        GameObject inst = Instantiate(item, transform);
-        DestroyItem(inst);
+        yield return new WaitForSeconds(0.6f);
 
+        itemInst = Instantiate(item, transform);
+        StartCoroutine(DestroyItem());
     }
 
-    private IEnumerator DestroyItem(GameObject inst)
+    private IEnumerator DestroyItem()
     {
-        yield return new WaitForSeconds(1f);
-        Destroy(inst);
+        yield return new WaitForSeconds(1.5f);
+        Destroy(itemInst);
 
         Debug.Log("Destroy");
     }

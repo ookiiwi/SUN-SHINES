@@ -126,14 +126,21 @@ public class TabManager : MonoBehaviour
 
     private void ShowDescription(TabButton button, ScriptableObject item, Inventory inventory)
     {
+        TextMeshProUGUI descriptionText = descriptionPage.GetComponentInChildren<TextMeshProUGUI>();
+        descriptionText.SetText("");
+
         if (item is FireBallS_Obj)
         {
             FireBallS_Obj fb = item as FireBallS_Obj;
 
-            if (inventory.HaveItem(fb.m_name) && fb.m_description != null)
-            {
-                TextMeshProUGUI descriptionText = descriptionPage.GetComponentInChildren<TextMeshProUGUI>();
-                descriptionText.SetText(fb.m_description.text + "\nDamages: " + fb.m_DP + "\nLife time: " + fb.m_lifeTime);
+            if (inventory.HaveItem(fb.m_name))
+            {  
+                if (fb.m_description != null)
+                {
+                    descriptionText.SetText(fb.m_description.text + "\n\n");
+                }
+
+                descriptionText.text += "Damages: " + fb.m_DP + "\nLife time: " + fb.m_lifeTime;
 
                 float textPosX = descriptionPage.transform.position.x;
                 float textPosY = descriptionPage.transform.position.y + descriptionPage.GetComponent<RectTransform>().sizeDelta.y / 2;
@@ -150,9 +157,23 @@ public class TabManager : MonoBehaviour
         {
             PotionSO potion = item as PotionSO;
 
-            if (inventory.HaveItem(potion.m_name) && potion.m_description != null)
+            if (inventory.HaveItem(potion.m_name))
             {
-                descriptionPage.GetComponentInChildren<TextMeshProUGUI>().SetText(potion.m_description.text);
+                if (potion.m_description != null)
+                {
+                    descriptionText.SetText(potion.m_description.text + "\n\n");
+                }
+
+                descriptionText.text += "HP: " + potion.m_gain + "\nAction time: " + potion.m_actionTime;
+
+                float textPosX = descriptionPage.transform.position.x;
+                float textPosY = descriptionPage.transform.position.y + descriptionPage.GetComponent<RectTransform>().sizeDelta.y / 2;
+                float panelPosX = button.transform.position.x + descriptionPage.GetComponent<RectTransform>().sizeDelta.x / 2 + button.GetComponent<RectTransform>().sizeDelta.x;
+                float panelPosY = button.transform.position.y - descriptionPage.GetComponent<RectTransform>().sizeDelta.y / 2;
+
+                descriptionText.transform.position = new Vector3(textPosX, textPosY);
+                descriptionPage.transform.position = new Vector3(panelPosX, panelPosY);
+                descriptionPage.SetActive(true);
             }
         }
     }

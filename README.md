@@ -19,7 +19,7 @@ $ git clone https://github.com/ookiiwi/SUN-SHINES.git
 1. Hit play
 
 ## Commands
-- `N` Change level
+- `N` Change scene
 - `Q` Move left
 - `D` Move right
 - `Space` Jump

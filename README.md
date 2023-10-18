@@ -5,6 +5,14 @@ Joined by your 3 friends, you have to bring back the sun light on this planet.
 ## Notice
 This is a small project I made for fun. Due to lake of time and motivation (I think) it is left as is.
 
+## Gallery
+
+<p>
+<img src="img/sunshines_forest_vid.gif">
+<img src="img/cave_turtle_vid.gif">
+<img src="img/cave_koala_vid.gif">
+</p>
+
 ## Installation
 
 ```console

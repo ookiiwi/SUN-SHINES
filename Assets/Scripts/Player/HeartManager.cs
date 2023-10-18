@@ -32,6 +32,9 @@ public class HeartManager : MonoBehaviour
 
     private void Damage()
     {
+        if (currentHeart < 0)
+         return;
+
         if (playerData.HP < playerData.prevHP)
         {
             hearts[currentHeart].GetComponent<SpriteRenderer>().sprite = heartSprites[playerData.HP];

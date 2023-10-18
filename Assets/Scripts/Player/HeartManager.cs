@@ -11,6 +11,10 @@ public class HeartManager : MonoBehaviour
 
     private int currentHeart;
 
+    private void Awake() {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
     private void Start()
     {
         playerData = gameManager.currentPlayer.GetComponent<CharacterData>();
